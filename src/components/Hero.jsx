@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { styles } from '../styles';
+import { mypic } from '../assets';
 
 const Hero = () => {
   return (
@@ -24,7 +25,7 @@ const Hero = () => {
       {/* Profile image (centered below text) */}
       <div className="mt-12">
         <img
-          src="src/components/mypic.jpg" // or "/mypic.jpg" if placed in public
+          src= {mypic} // or "/mypic.jpg" if placed in public
           alt="profile"
           className="w-[340px] h-[340px] rounded-full object-cover border-4 border-[#915EFF] shadow-xl"
         />
