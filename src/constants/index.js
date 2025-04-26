@@ -39,10 +39,10 @@ export const navLinks = [
     id: "tech",
     title: "Skills",
   },
-  {
-    id: "experience",
-    title: "Work",
-  },
+  // {
+  //   id: "experience",
+  //   title: "Work",
+  // },
   {
     id: "work",
     title: "Projects",
@@ -262,7 +262,7 @@ const projects = [
       },
     ],
     image: tripguide,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/PRATYAKSH15/Pratyaksh_portfolio",
     demo_link: "http://www.demo.com",
   },
   {
