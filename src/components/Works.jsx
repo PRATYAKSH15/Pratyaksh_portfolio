@@ -1,0 +1,94 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { github } from "../assets";
+import { styles } from "../styles";
+import { SectionWrapper } from "../hoc";
+import { projects } from "../constants";
+import { fadeIn, textVariant } from "../utils/motion";
+
+const ProjectCard = ({
+  index,
+  name,
+  description,
+  tags,
+  image,
+  source_code_link,
+  demo_link,
+}) => {
+  return (
+    <motion.div
+      variants={fadeIn("up", "spring", index * 0.3, 0.75)}
+      className="bg-[#1a1a2e] p-4 rounded-2xl shadow-lg hover:shadow-purple-500/30 transition duration-300 w-full sm:w-[330px]"
+    >
+      <div className="relative w-full h-[200px] overflow-hidden rounded-xl group">
+        <img
+          src={image}
+          alt={name}
+          className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition duration-300"
+        />
+
+        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center gap-4">
+          {/* {demo_link && (
+            <button
+              onClick={() => window.open(demo_link, "_blank")}
+              className="text-sm bg-white text-black px-3 py-2 rounded-md font-semibold hover:bg-purple-300"
+            >
+              Live Demo
+            </button>
+          )} */}
+          {source_code_link && (
+            <button
+              onClick={() => window.open(source_code_link, "_blank")}
+              className="text-sm border border-white text-white px-3 py-2 rounded-md font-semibold hover:bg-white hover:text-black"
+            >
+              Source code <img src={github} alt="Github" className=" bg-black rounded inline-block w-4 h-4 ml-1" />
+            </button>
+          )}
+        </div>
+      </div>
+
+      <div className="mt-5">
+        <h3 className="text-white text-xl font-semibold">{name}</h3>
+        <p className="text-sm mt-2 text-gray-400">{description}</p>
+      </div>
+
+      <div className="mt-3 flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <span
+            key={`${name}-${tag.name}`}
+            className={`text-xs ${tag.color} bg-white/10 px-2 py-1 rounded`}
+          >
+            #{tag.name}
+          </span>
+        ))}
+      </div>
+    </motion.div>
+  );
+};
+
+const Works = () => {
+  return (
+    <>
+      <motion.div variants={textVariant()}>
+        <p className={styles.sectionSubText}>My Work</p>
+        <h2 className={styles.sectionHeadText}>Projects</h2>
+      </motion.div>
+
+      <motion.p
+        variants={fadeIn("", "", 0.1, 1)}
+        className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
+      >
+        A collection of my projects that reflect real-world problem solving,
+        creativity, and technical ability — with source code to explore.
+      </motion.p>
+
+      <div className="mt-12 flex flex-wrap justify-center gap-8">
+        {projects.map((project, index) => (
+          <ProjectCard key={`project-${index}`} index={index} {...project} />
+        ))}
+      </div>
+    </>
+  );
+};
+
+export default SectionWrapper(Works, "work");
