@@ -221,28 +221,28 @@ const projects = [
   //   source_code_link: "https://github.com/",
   //   demo_link: "http://www.demo.com" ,
   // },
-  // {
-  //   name: "ChatGO",
-  //   description:
-  //     "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
-  //   tags: [
-  //     {
-  //       name: "react",
-  //       color: "blue-text-gradient",
-  //     },
-  //     {
-  //       name: "restapi",
-  //       color: "green-text-gradient",
-  //     },
-  //     {
-  //       name: "scss",
-  //       color: "pink-text-gradient",
-  //     },
-  //   ],
-  //   image: jobit,
-  //   source_code_link: "https://github.com/",
-  //   demo_link: "http://www.demo.com" ,
-  // },
+  {
+    name: "ChatGO",
+    description:
+      "Real-time chat application built with the MERN stack and Socket.IO, allowing users to send and receive instant messages and manage user profiles.",    
+      tags: [
+      {
+        name: "Reactjs",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Nodejs",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Socket.io",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: jobit,
+    source_code_link: "https://github.com/PRATYAKSH15/chatGO",
+    demo_link: "http://www.demo.com" ,
+  },
   {
     name: "Portfolio",
     description:
@@ -287,28 +287,28 @@ const projects = [
     source_code_link: "https://github.com/PRATYAKSH15/IMDB-Sentiment-Analysis",
     demo_link: "http://www.demo.com",
   },
-  // {
-  //   name: "Whatsapp chat Analyser",
-  //   description:
-  //     "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-  //   tags: [
-  //     {
-  //       name: "nextjs",
-  //       color: "blue-text-gradient",
-  //     },
-  //     {
-  //       name: "supabase",
-  //       color: "green-text-gradient",
-  //     },
-  //     {
-  //       name: "css",
-  //       color: "pink-text-gradient",
-  //     },
-  //   ],
-  //   image: whatsapp,
-  //   source_code_link: "https://github.com/",
-  //   demo_link: "http://www.demo.com" ,
-  // },
+  {
+    name: "AI Websearch Agent",
+    description:
+      "A web search engine that utilizes AI to provide relevant search results and suggestions based on user queries, enhancing the search experience.",
+    tags: [
+      {
+        name: "Langchain",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "GroqAPI",
+        color: "green-text-gradient",
+      },
+      {
+        name: "web integration",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: whatsapp,
+    source_code_link: "https://github.com/PRATYAKSH15/Web-Search-Agent",
+    demo_link: "http://www.demo.com" ,
+  },
   {
     name: "Credit card fraud detection",
     description:
