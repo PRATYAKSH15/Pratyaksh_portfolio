@@ -41,7 +41,12 @@ const ProjectCard = ({
               onClick={() => window.open(source_code_link, "_blank")}
               className="text-sm border border-white text-white px-3 py-2 rounded-md font-semibold hover:bg-white hover:text-black"
             >
-              Source code <img src={github} alt="Github" className=" bg-black rounded inline-block w-4 h-4 ml-1" />
+              Source code{" "}
+              <img
+                src={github}
+                alt="Github"
+                className=" bg-black rounded inline-block w-4 h-4 ml-1"
+              />
             </button>
           )}
         </div>
@@ -86,6 +91,16 @@ const Works = () => {
         {projects.map((project, index) => (
           <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}
+      </div>
+      <div className="mt-10 flex justify-center">
+        <a
+          href="https://github.com/PRATYAKSH15" // replace with your GitHub URL
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block px-6 py-3 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold text-lg shadow-lg hover:scale-105 transition-transform duration-300"
+        >
+          For more projects, view my GitHub →
+        </a>
       </div>
     </>
   );
