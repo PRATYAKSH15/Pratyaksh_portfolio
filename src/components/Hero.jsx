@@ -37,9 +37,9 @@ const Hero = () => {
           href="https://drive.google.com/file/d/1ufGl8Vdy-d3MSmH_8WdG-o65tf_SNXgV/view?usp=drivesdk" // Replace with your actual resume URL
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block px-6 py-3 rounded-2xl bg-gradient-to-r from-purple-800 to-purple-500 text-white font-semibold text-lg shadow-md hover:shadow-xl hover:-translate-y-1 hover:scale-105 transition-all duration-300"
+          className="inline-block px-6 py-3 rounded-2xl border-white-100 bg-gradient-to-r from-purple-800 to-purple-500 text-white font-semibold text-lg shadow-md hover:shadow-xl hover:-translate-y-1 hover:scale-105 transition-all duration-300"
         >
-          View My Resume →
+          View Resume
         </a>
       </div>
     </section>
