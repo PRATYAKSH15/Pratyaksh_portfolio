@@ -46,17 +46,22 @@ const App = () => {
     <BrowserRouter>
       <div className="relative z-0 bg-primary">
         {/* Hero section with background */}
-        <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
+        {/* <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center"> */}
+
+        <div>
           <Navbar />
           <Hero />
         </div>
-
+        
         {/* Main sections */}
         <About />
         <Tech />
+
         {/* <Experience /> */}
         <Works />
-        <Feedbacks />
+
+        {/* removed feedbacks (experience) for now */}
+        {/* <Feedbacks /> */} 
 
         {/* Contact, stars, and footer together */}
         <div className="relative z-0">

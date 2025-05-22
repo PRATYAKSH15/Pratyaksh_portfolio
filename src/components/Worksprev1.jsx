@@ -1,10 +1,13 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { github } from "../assets";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
+import { fadeIn, textVariant } from "../utils/motion";
 
 const ProjectCard = ({
+  index,
   name,
   description,
   tags,
@@ -13,7 +16,10 @@ const ProjectCard = ({
   demo_link,
 }) => {
   return (
-    <div className="bg-[#1a1a2e] p-4 rounded-2xl shadow-lg hover:shadow-purple-500/30 transition duration-300 w-full sm:w-[330px]">
+    <motion.div
+      variants={fadeIn("up", "spring", index * 0.3, 0.75)}
+      className="bg-[#1a1a2e] p-4 rounded-2xl shadow-lg hover:shadow-purple-500/30 transition duration-300 w-full sm:w-[330px]"
+    >
       <div className="relative w-full h-[200px] overflow-hidden rounded-xl group">
         <img
           src={image}
@@ -61,31 +67,34 @@ const ProjectCard = ({
           </span>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 const Works = () => {
   return (
     <>
-      <div>
+      <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}>My Work</p>
         <h2 className={styles.sectionHeadText}>Projects</h2>
-      </div>
+      </motion.div>
 
-      <p className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]">
+      <motion.p
+        variants={fadeIn("", "", 0.1, 1)}
+        className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
+      >
         A collection of my projects that reflect real-world problem solving,
         creativity, and technical ability — with source code to explore.
-      </p>
+      </motion.p>
 
       <div className="mt-12 flex flex-wrap justify-center gap-8">
         {projects.map((project, index) => (
-          <ProjectCard key={`project-${index}`} {...project} />
+          <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}
       </div>
       <div className="mt-10 flex justify-center">
         <a
-          href="https://github.com/PRATYAKSH15"
+          href="https://github.com/PRATYAKSH15" // replace with your GitHub URL
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block px-6 py-3 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold text-lg shadow-lg hover:scale-105 transition-transform duration-300"
