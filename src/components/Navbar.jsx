@@ -51,7 +51,8 @@ const Navbar = () => {
         >
           {/* <img src={logo} alt='logo' className='w-9 h-9 object-contain' /> */}
           <p className='text-white text-[18px] font-bold cursor-pointer flex '>
-            Portfolio<span className='sm:block hidden'> 🚀</span>
+            Portfolio 🚀 
+            {/* <span className='sm:block hidden'> </span> -----> commented aroplane emoji small pr band ho jaata tha thatswhy*/}
           </p>
         </Link>
 
