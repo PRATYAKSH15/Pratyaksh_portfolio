@@ -56,7 +56,7 @@ const Contact = () => {
           </a>
 
           <a
-            href="https://drive.google.com/file/d/1ufGl8Vdy-d3MSmH_8WdG-o65tf_SNXgV/view?usp=drivesdk"
+            href="https://drive.google.com/file/d/1FsWPni0p3IjkEHIr7TBAqOBNpI0129EC/view?usp=drivesdk"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 justify-center bg-blue-700 text-white font-medium py-3 rounded-lg hover:bg-green-600 transition"
