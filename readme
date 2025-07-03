@@ -7,21 +7,21 @@ It highlights my **skills**, **projects**, and provides ways to **connect** with
 
 ## 📄 Features
 
-- Fully responsive design (Mobile / Tablet / Desktop)
-- Built with **React** for a component-based structure
-- Styled using **TailwindCSS** for fast and clean UI
-- Smooth animations and transitions
-- Showcases my **projects**, **skills**, and **contact links**
-- Easy to maintain and extend
+- 🔹 Fully responsive design (Mobile / Tablet / Desktop)
+- 🔹 Component-based architecture with **React**
+- 🔹 Clean and fast UI using **TailwindCSS**
+- 🔹 Smooth animations using **Framer Motion**
+- 🔹 Showcases **Projects**, **Skills**, and **Contact Links**
+- 🔹 Easy to maintain and extend
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **React.js**
-- **TailwindCSS**
-- **Framer Motion** (optional, for animations)
-- **React Icons** (for social/media icons)
+- ⚛️ **React.js**
+- 🎨 **TailwindCSS**
+- 🎞️ **Framer Motion** (for animations)
+- 🔗 **React Icons** (for social/media icons)
 
 ---
 
@@ -33,4 +33,6 @@ It highlights my **skills**, **projects**, and provides ways to **connect** with
 
 ---
 
-# 🌟 Thank you for visiting!
+## 🌟 Thank You for Visiting!
+
+> Feel free to explore and reach out for collaboration opportunities!
