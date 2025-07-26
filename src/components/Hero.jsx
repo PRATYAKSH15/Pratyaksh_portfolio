@@ -34,7 +34,7 @@ const Hero = () => {
 
       <div className="mt-10 flex justify-center">
         <a
-          href="https://drive.google.com/file/d/1FsWPni0p3IjkEHIr7TBAqOBNpI0129EC/view?usp=drivesdk" // Replace with your actual resume URL
+          href="https://drive.google.com/file/d/1fb3tZBV4sl-TziOV0euiZmO1SlS_gCmJ/view?usp=drivesdk" // Replace with your actual resume URL
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block px-6 py-3 rounded-2xl border-white-100 bg-gradient-to-r from-purple-800 to-purple-500 text-white font-semibold text-lg shadow-md hover:shadow-xl hover:-translate-y-1 hover:scale-105 transition-all duration-300"
