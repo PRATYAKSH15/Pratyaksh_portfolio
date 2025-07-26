@@ -27,7 +27,10 @@ import {
   imdb,
   credit,
   whatsapp,
+  review,
+  nutri,
   // threejs,
+
 } from "../assets";
 
 export const navLinks = [
@@ -221,6 +224,54 @@ const projects = [
   //   source_code_link: "https://github.com/",
   //   demo_link: "http://www.demo.com" ,
   // },
+  {
+    name: "AI Code Reviewer",
+    description:
+      "MERN-based web application that allows users to input source code and receive intelligent feedback using Google's Gemini AI. Designed with a sleek dark theme and typing animations.",    
+      tags: [
+      {
+        name: "Reactjs",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Nodejs",
+        color: "green-text-gradient",
+      },
+      {
+        name: "GenAI",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "AI Integration",
+        color: "green-text-gradient",
+      },
+    ],
+    image: review,
+    source_code_link: "https://github.com/PRATYAKSH15/AI-code-reviewer",
+    demo_link: "http://www.demo.com" ,
+  },
+  {
+    name: "NutriTrack - AI Nutrition Assistant",
+    description:
+      "AI-powered nutritionist built using Gemini 1.5 Flash. This app offers personalized meal insights and diet plans based on uploaded food images and user-specific dietary goals.",    
+      tags: [
+      {
+        name: "Python",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Gemini 1.5 Flash",
+        color: "green-text-gradient",
+      },
+      {
+        name: "SQlite",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: nutri,
+    source_code_link: "https://github.com/PRATYAKSH15/NutriTrack",
+    demo_link: "http://www.demo.com" ,
+  },
   {
     name: "ChatGO",
     description:

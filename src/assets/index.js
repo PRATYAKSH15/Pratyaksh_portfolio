@@ -23,6 +23,9 @@ import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
 import ibm from "./tech/ibm.png";
 import ieee from "./tech/ieee.png";
+import review from "./review.png";
+import nutri from "./nutri.png";
+
 
 
 import meta from "./company/meta.png";
@@ -72,4 +75,7 @@ export {
   credit,
   whatsapp,
   mypic,
+  review,
+  nutri,
+
 };
