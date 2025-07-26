@@ -73,7 +73,7 @@ const Works = () => {
       </p>
 
       <div className="mt-12">
-        <Marquee gradient={false} speed={50} pauseOnHover={true} direction="left" loop={0}>
+        <Marquee gradient={false} speed={120} pauseOnHover={true} direction="left" loop={0}>
           {projects.map((project, index) => (
             <ProjectCard key={`project-${index}`} {...project} />
           ))}
