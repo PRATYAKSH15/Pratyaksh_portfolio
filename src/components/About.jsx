@@ -71,7 +71,7 @@ const About = () => {
         className="mt-4 text-secondary text-[17px] max-w-4xl leading-[30px] space-y-4 mx-auto"
       >
         <>
-          Hi, myself Pratyaksh — a pre-final year student currently pursuing my
+          Hi, myself Pratyaksh — a Final year student currently pursuing my
           B.Tech in Information Technology from USICT, GGSIPU. I'm passionate
           about full-stack web development and have been building projects using
           the MERN stack. I enjoy turning ideas into functional, user-friendly

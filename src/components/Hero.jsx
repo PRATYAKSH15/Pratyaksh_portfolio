@@ -28,7 +28,7 @@ const Hero = () => {
         <img
           src={mypic} // or "/mypic.jpg" if placed in public
           alt="profile"
-          className="w-[340px] h-[340px] rounded-full object-cover border-4 border-[#915EFF] shadow-xl"
+          className="w-[400px] h-[400px] rounded-full object-cover object-center border-4 border-[#915EFF] shadow-xl"
         />
       </div>
 
