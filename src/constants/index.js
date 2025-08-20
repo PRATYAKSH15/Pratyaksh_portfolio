@@ -29,8 +29,8 @@ import {
   whatsapp,
   review,
   nutri,
-  // threejs,
-
+  guidelyai,
+  mindnest,
 } from "../assets";
 
 export const navLinks = [
@@ -202,33 +202,77 @@ const testimonials = [
 ];
 
 const projects = [
-  // {
-  //   name: "GetFit",
-  //   description:
-  //     "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
-  //   tags: [
-  //     {
-  //       name: "react",
-  //       color: "blue-text-gradient",
-  //     },
-  //     {
-  //       name: "mongodb",
-  //       color: "green-text-gradient",
-  //     },
-  //     {
-  //       name: "tailwind",
-  //       color: "pink-text-gradient",
-  //     },
-  //   ],
-  //   image: carrent,
-  //   source_code_link: "https://github.com/",
-  //   demo_link: "http://www.demo.com" ,
-  // },
+  {
+    name: "MindNest",
+    description:
+      "MindNest is a mental health companion platform that offers self-help resources, community forums, and personalized self-assessments. Built with React, TailwindCSS, Node.js, Express, and MongoDB, it ensures secure access with Clerk JWT while providing a clean and responsive user experience.",
+      tags: [
+      {
+        name: "ReactJS",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "TailwindCSS",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "NodeJS",
+        color: "green-text-gradient",
+      },
+      {
+        name: "ExpressJS",
+        color: "orange-text-gradient",
+      },
+      {
+        name: "MongoDB",
+        color: "yellow-text-gradient",
+      },
+      {
+        name: "Clerk JWT",
+        color: "purple-text-gradient",
+      },
+    ],
+    image: mindnest, // replace with imported image variable
+    source_code_link: "https://github.com/PRATYAKSH15/MindNest",
+    demo_link: "", // add demo link if available
+  },
+
+  {
+    name: "GuidelyAI",
+    description:
+      "GuidelyAI is an AI-powered career guide built with Next.js, PostgreSQL, Clerk, and Inngest. It provides personalized career recommendations and insights, helping students and professionals make better decisions with a secure, seamless, and scalable platform.",
+    tags: [
+      {
+        name: "NextJS",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "PostgreSQL",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Clerk JWT",
+        color: "purple-text-gradient",
+      },
+      {
+        name: "Inngest",
+        color: "orange-text-gradient",
+      },
+      {
+        name: "Gemini",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: guidelyai, // replace with imported image variable
+    source_code_link: "https://github.com/PRATYAKSH15/GuidelyAI",
+    demo_link: "", // add demo link if available
+  },
+
   {
     name: "AI Code Reviewer",
     description:
-      "MERN-based web application that allows users to input source code and receive intelligent feedback using Google's Gemini AI. Designed with a sleek dark theme and typing animations.",    
-      tags: [
+      "MERN-based web application that allows users to input source code and receive intelligent feedback using Google's Gemini AI. Designed with a sleek dark theme and typing animations.",
+    tags: [
       {
         name: "Reactjs",
         color: "blue-text-gradient",
@@ -248,13 +292,13 @@ const projects = [
     ],
     image: review,
     source_code_link: "https://github.com/PRATYAKSH15/AI-code-reviewer",
-    demo_link: "http://www.demo.com" ,
+    demo_link: "http://www.demo.com",
   },
   {
     name: "NutriTrack - AI Nutrition Assistant",
     description:
-      "AI-powered nutritionist built using Gemini 1.5 Flash. This app offers personalized meal insights and diet plans based on uploaded food images and user-specific dietary goals.",    
-      tags: [
+      "AI-powered nutritionist built using Gemini 1.5 Flash. This app offers personalized meal insights and diet plans based on uploaded food images and user-specific dietary goals.",
+    tags: [
       {
         name: "Python",
         color: "blue-text-gradient",
@@ -270,13 +314,13 @@ const projects = [
     ],
     image: nutri,
     source_code_link: "https://github.com/PRATYAKSH15/NutriTrack",
-    demo_link: "http://www.demo.com" ,
+    demo_link: "http://www.demo.com",
   },
   {
     name: "ChatGO",
     description:
-      "Real-time chat application built with the MERN stack and Socket.IO, allowing users to send and receive instant messages and manage user profiles.",    
-      tags: [
+      "Real-time chat application built with the MERN stack and Socket.IO, allowing users to send and receive instant messages and manage user profiles.",
+    tags: [
       {
         name: "Reactjs",
         color: "blue-text-gradient",
@@ -292,7 +336,7 @@ const projects = [
     ],
     image: jobit,
     source_code_link: "https://github.com/PRATYAKSH15/chatGO",
-    demo_link: "http://www.demo.com" ,
+    demo_link: "http://www.demo.com",
   },
   {
     name: "Portfolio",
@@ -316,72 +360,72 @@ const projects = [
     source_code_link: "https://github.com/PRATYAKSH15/Pratyaksh_portfolio",
     demo_link: "http://www.demo.com",
   },
-  {
-    name: "IMDB Review Analyser",
-    description:
-      "A sentiment analysis tool that automatically classifies movie reviews from IMDB as positive or negative using Natural Language Processing (NLP) and Machine Learning.",
-    tags: [
-      {
-        name: "NLP",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "machine learning",
-        color: "green-text-gradient",
-      },
-      {
-        name: "tensorflow",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: imdb,
-    source_code_link: "https://github.com/PRATYAKSH15/IMDB-Sentiment-Analysis",
-    demo_link: "http://www.demo.com",
-  },
-  {
-    name: "AI Websearch Agent",
-    description:
-      "A web search engine that utilizes AI to provide relevant search results and suggestions based on user queries, enhancing the search experience.",
-    tags: [
-      {
-        name: "Langchain",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "GroqAPI",
-        color: "green-text-gradient",
-      },
-      {
-        name: "web integration",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: whatsapp,
-    source_code_link: "https://github.com/PRATYAKSH15/Web-Search-Agent",
-    demo_link: "http://www.demo.com" ,
-  },
-  {
-    name: "Credit card fraud detection",
-    description:
-      "This project focuses on detecting fraudulent credit card transactions using logistic regression. It aims to identify patterns and anomalies in transaction data to mitigate risks in financial systems.",
-    tags: [
-      {
-        name: "Scikit-learn",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "python",
-        color: "green-text-gradient",
-      },
-      // {
-      //   name: "",
-      //   color: "pink-text-gradient",
-      // },
-    ],
-    image: credit,
-    source_code_link: "https://github.com/PRATYAKSH15/CreditCard_Fraud",
-    demo_link: "http://www.demo.com",
-  },
+  // {
+  //   name: "IMDB Review Analyser",
+  //   description:
+  //     "A sentiment analysis tool that automatically classifies movie reviews from IMDB as positive or negative using Natural Language Processing (NLP) and Machine Learning.",
+  //   tags: [
+  //     {
+  //       name: "NLP",
+  //       color: "blue-text-gradient",
+  //     },
+  //     {
+  //       name: "machine learning",
+  //       color: "green-text-gradient",
+  //     },
+  //     {
+  //       name: "tensorflow",
+  //       color: "pink-text-gradient",
+  //     },
+  //   ],
+  //   image: imdb,
+  //   source_code_link: "https://github.com/PRATYAKSH15/IMDB-Sentiment-Analysis",
+  //   demo_link: "http://www.demo.com",
+  // },
+  // {
+  //   name: "AI Websearch Agent",
+  //   description:
+  //     "A web search engine that utilizes AI to provide relevant search results and suggestions based on user queries, enhancing the search experience.",
+  //   tags: [
+  //     {
+  //       name: "Langchain",
+  //       color: "blue-text-gradient",
+  //     },
+  //     {
+  //       name: "GroqAPI",
+  //       color: "green-text-gradient",
+  //     },
+  //     {
+  //       name: "web integration",
+  //       color: "pink-text-gradient",
+  //     },
+  //   ],
+  //   image: whatsapp,
+  //   source_code_link: "https://github.com/PRATYAKSH15/Web-Search-Agent",
+  //   demo_link: "http://www.demo.com" ,
+  // },
+  // {
+  //   name: "Credit card fraud detection",
+  //   description:
+  //     "This project focuses on detecting fraudulent credit card transactions using logistic regression. It aims to identify patterns and anomalies in transaction data to mitigate risks in financial systems.",
+  //   tags: [
+  //     {
+  //       name: "Scikit-learn",
+  //       color: "blue-text-gradient",
+  //     },
+  //     {
+  //       name: "python",
+  //       color: "green-text-gradient",
+  //     },
+  //     // {
+  //     //   name: "",
+  //     //   color: "pink-text-gradient",
+  //     // },
+  //   ],
+  //   image: credit,
+  //   source_code_link: "https://github.com/PRATYAKSH15/CreditCard_Fraud",
+  //   demo_link: "http://www.demo.com",
+  // },
 ];
 
 // export default socialLinks = [

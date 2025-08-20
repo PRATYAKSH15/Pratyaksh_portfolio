@@ -25,8 +25,8 @@ import ibm from "./tech/ibm.png";
 import ieee from "./tech/ieee.png";
 import review from "./review.png";
 import nutri from "./nutri.png";
-
-
+import guidelyai from "./guidelyai.png";
+import mindnest from "./mindnest.png";
 
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
@@ -77,5 +77,7 @@ export {
   mypic,
   review,
   nutri,
+  guidelyai,
+  mindnest,
 
 };

@@ -39,6 +39,7 @@ import {
   Works,
   StarsCanvas,
   Footer,
+  Achievements,
 } from "./components";
 
 const App = () => {
@@ -59,6 +60,8 @@ const App = () => {
 
         {/* <Experience /> */}
         <Works />
+
+        <Achievements />
 
         {/* removed feedbacks (experience) for now */}
         {/* <Feedbacks /> */} 

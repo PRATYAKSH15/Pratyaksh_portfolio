@@ -9,6 +9,7 @@ import Feedbacks from './Feedbacks';
 import Contact from './Contact';
 import MyButton from './MyButton';
 import Footer from './Footer';
+import Achievements from './Achievements';
 
 export {
   Hero,
@@ -25,4 +26,5 @@ export {
   StarsCanvas,
   MyButton,
   Footer,
+  Achievements,
 }
