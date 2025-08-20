@@ -10,6 +10,7 @@ import Contact from './Contact';
 import MyButton from './MyButton';
 import Footer from './Footer';
 import Achievements from './Achievements';
+import RippleEffect from './RippleEffect';
 
 export {
   Hero,
@@ -27,4 +28,5 @@ export {
   MyButton,
   Footer,
   Achievements,
+  RippleEffect,
 }
