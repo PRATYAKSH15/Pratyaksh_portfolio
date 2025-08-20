@@ -55,7 +55,7 @@ const App = () => {
         </div>
         
         {/* Main sections */}
-        <About />
+        {/* <About /> */}
         <Tech />
 
         {/* <Experience /> */}
