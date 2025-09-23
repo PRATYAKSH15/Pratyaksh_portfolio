@@ -343,25 +343,25 @@ const projects = [
     demo_link: "http://www.demo.com",
   },
   {
-    name: "Portfolio",
+    name: "MediSync",
     description:
-      "This is a personal portfolio website built with React.js. It showcases my projects, skills, and contact information in a clean and responsive design.",
+      "An AI-powered healthcare platform leveraging LangChain RAG with vector embeddings and OpenAI to deliver real-time medical insights.",
     tags: [
       {
-        name: "react",
+        name: "MERN",
         color: "blue-text-gradient",
       },
       {
-        name: "framer motion",
+        name: "Langchain RAG",
         color: "green-text-gradient",
       },
       {
-        name: "tailwind",
+        name: "OpenAI",
         color: "pink-text-gradient",
       },
     ],
     image: tripguide,
-    source_code_link: "https://github.com/PRATYAKSH15/Pratyaksh_portfolio",
+    source_code_link: "https://github.com/PRATYAKSH15/MediSync.git",
     demo_link: "http://www.demo.com",
   },
   // {
