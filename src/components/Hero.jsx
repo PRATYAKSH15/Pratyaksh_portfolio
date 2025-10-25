@@ -75,11 +75,13 @@ const Hero = () => {
             variants={fadeIn("", "", 0.1, 1)}
             className="text-secondary text-[16px] sm:text-[17px] leading-[28px] max-w-2xl"
           >
-            Hi, myself Pratyaksh — a Final year student currently pursuing my
-            B.Tech in Information Technology from USICT, GGSIPU. I'm passionate
-            about full-stack web development and have been building projects
-            using the MERN stack. I enjoy turning ideas into functional,
-            user-friendly apps that make an impact.
+            I'm Pratyaksh, a Final year B.Tech student in Information Technology
+            at USICT, GGSIPU. I'm passionate about Full-Stack Web Development
+            and have hands-on experience building scalable applications using
+            the MERN and Next.js stacks. I also work with FastAPI for backend
+            development and have strong experience with both SQL and NoSQL
+            databases. I enjoy transforming ideas into impactful, user-friendly
+            products.
             <br />
             <br />
             I'm also deeply interested in Machine Learning and Generative AI,
