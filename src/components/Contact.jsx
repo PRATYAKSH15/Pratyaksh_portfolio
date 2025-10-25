@@ -37,7 +37,7 @@ const socials = [
     color: "from-gray-600 to-gray-900",
   },
   {
-    href: "https://drive.google.com/file/d/11Jvuh4wqzK59PiDfTdIXMwLcr1ksd9Zz/view?usp=drive_link",
+    href: "https://drive.google.com/file/d/1xl383m-TirHq7uA-yoPNEu2kmW-zkPNn/view?usp=drivesdk",
     icon: <FaEye />,
     label: "Resume",
     color: "from-green-400 to-emerald-600",
