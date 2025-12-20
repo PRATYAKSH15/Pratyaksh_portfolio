@@ -206,10 +206,65 @@ const testimonials = [
 ];
 
 const projects = [
+
+  {
+    name: "Elevatr",
+    description:
+      "Elevatr is a modern profile-enhancing platform built with Next.js, PostgreSQL, Clerk that helps users generate AI-crafted professional content including profile summaries, skill suggestions, cold emails, cover letters, and comprehensive resume analysis.",
+    tags: [
+      {
+        name: "NextJS",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "TypeScript",
+        color: "green-text-gradient",
+      },
+      {
+        name: "SaaS",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: review,
+    source_code_link: "https://github.com/PRATYAKSH15/Elevatr",
+    demo_link: "http://www.demo.com",
+  },
+
+  {
+    name: "GuidelyAI",
+    description:
+      "GuidelyAI is an AI-powered career guide built with Next.js, PostgreSQL, Clerk, and Inngest. It provides personalized career recommendations and insights, helping students and professionals make better decisions with a secure, seamless, and scalable platform.",
+    tags: [
+      {
+        name: "NextJS",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "PostgreSQL",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Clerk JWT",
+        color: "purple-text-gradient",
+      },
+      // {
+      //   name: "Inngest",
+      //   color: "orange-text-gradient",
+      // },
+      // {
+      //   name: "Gemini",
+      //   color: "pink-text-gradient",
+      // },
+    ],
+    image: guidelyai, // replace with imported image variable
+    source_code_link: "https://github.com/PRATYAKSH15/GuidelyAI",
+    demo_link: "", // add demo link if available
+  },
+
   {
     name: "MindNest",
     description:
-      "MindNest is a mental health companion platform that offers self-help resources, community forums, and personalized self-assessments. Built with React, TailwindCSS, Node.js, Express, and MongoDB, it ensures secure access with Clerk JWT while providing a clean and responsive user experience.",
+      "MindNest is a mental health companion platform that offers self-help resources, community forums, and personalized self-assessments, main aim is to provide foster a supportive community.",
       tags: [
       {
         name: "ReactJS",
@@ -241,63 +296,32 @@ const projects = [
     demo_link: "", // add demo link if available
   },
 
-  {
-    name: "GuidelyAI",
-    description:
-      "GuidelyAI is an AI-powered career guide built with Next.js, PostgreSQL, Clerk, and Inngest. It provides personalized career recommendations and insights, helping students and professionals make better decisions with a secure, seamless, and scalable platform.",
-    tags: [
-      {
-        name: "NextJS",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "PostgreSQL",
-        color: "green-text-gradient",
-      },
-      {
-        name: "Clerk JWT",
-        color: "purple-text-gradient",
-      },
-      {
-        name: "Inngest",
-        color: "orange-text-gradient",
-      },
-      {
-        name: "Gemini",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: guidelyai, // replace with imported image variable
-    source_code_link: "https://github.com/PRATYAKSH15/GuidelyAI",
-    demo_link: "", // add demo link if available
-  },
-
-  {
-    name: "AI Code Reviewer",
-    description:
-      "MERN-based web application that allows users to input source code and receive intelligent feedback using Google's Gemini AI. Designed with a sleek dark theme and typing animations.",
-    tags: [
-      {
-        name: "Reactjs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Nodejs",
-        color: "green-text-gradient",
-      },
-      {
-        name: "GenAI",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "AI Integration",
-        color: "green-text-gradient",
-      },
-    ],
-    image: review,
-    source_code_link: "https://github.com/PRATYAKSH15/AI-code-reviewer",
-    demo_link: "http://www.demo.com",
-  },
+  // {
+  //   name: "AI Code Reviewer",
+  //   description:
+  //     "MERN-based web application that allows users to input source code and receive intelligent feedback using Google's Gemini AI. Designed with a sleek dark theme and typing animations.",
+  //   tags: [
+  //     {
+  //       name: "Reactjs",
+  //       color: "blue-text-gradient",
+  //     },
+  //     {
+  //       name: "Nodejs",
+  //       color: "green-text-gradient",
+  //     },
+  //     {
+  //       name: "GenAI",
+  //       color: "pink-text-gradient",
+  //     },
+  //     {
+  //       name: "AI Integration",
+  //       color: "green-text-gradient",
+  //     },
+  //   ],
+  //   image: review,
+  //   source_code_link: "https://github.com/PRATYAKSH15/AI-code-reviewer",
+  //   demo_link: "http://www.demo.com",
+  // },
   {
     name: "NutriTrack - AI Nutrition Assistant",
     description:
