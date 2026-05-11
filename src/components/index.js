@@ -7,7 +7,6 @@ import Experience from './Experience';
 import Works from './Works';
 import Feedbacks from './Feedbacks';
 import Contact from './Contact';
-import MyButton from './MyButton';
 import Footer from './Footer';
 import Achievements from './Achievements';
 import RippleEffect from './RippleEffect';
@@ -25,7 +24,6 @@ export {
   BallCanvas, 
   ComputersCanvas, 
   StarsCanvas,
-  MyButton,
   Footer,
   Achievements,
   RippleEffect,

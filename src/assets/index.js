@@ -22,16 +22,11 @@ import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
 import ibm from "./tech/ibm.png";
-import ieee from "./tech/ieee.png";
 import review from "./review.png";
 import nutri from "./nutri.png";
 import guidelyai from "./guidelyai.png";
 import mindnest from "./mindnest.png";
 
-import meta from "./company/meta.png";
-import shopify from "./company/shopify.png";
-import starbucks from "./company/starbucks.png";
-import tesla from "./company/tesla.png";
 import amazon from "./company/amazon.svg";
 import gssoc from "./company/gssoc.png";
 import samaveda from "./company/samaveda.png";
@@ -65,10 +60,6 @@ export {
   tailwind,
   typescript,
   threejs,
-  meta,
-  shopify,
-  starbucks,
-  tesla,
   amazon,
   gssoc,
   samaveda,
@@ -76,7 +67,6 @@ export {
   jobit,
   tripguide,
   ibm,
-  ieee,
   imdb,
   credit,
   whatsapp,
