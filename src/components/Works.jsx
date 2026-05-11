@@ -6,7 +6,7 @@ import { projects } from "../constants";
 import Tilt from "react-parallax-tilt";
 import { ExternalLink } from "lucide-react";
 
-const ProjectCard = ({ name, description, tags, image, source_code_link, live_demo }) => {
+const ProjectCard = ({ name, description, tags, image, source_code_link, demo_link }) => {
   return (
     <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05} transitionSpeed={400}>
       <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg overflow-hidden hover:shadow-purple-500/30 transition-shadow duration-300">
@@ -29,9 +29,9 @@ const ProjectCard = ({ name, description, tags, image, source_code_link, live_de
                 <img src={github} alt="GitHub" className="w-5 h-5" />
               </a>
             )}
-            {live_demo && (
+            {demo_link && (
               <a
-                href={live_demo}
+                href={demo_link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-full bg-white text-black hover:bg-indigo-600 hover:text-white transition"

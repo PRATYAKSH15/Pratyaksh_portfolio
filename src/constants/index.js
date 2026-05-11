@@ -19,6 +19,9 @@ import {
   starbucks,
   tesla,
   shopify,
+  amazon,
+  gssoc,
+  samaveda,
   carrent,
   jobit,
   tripguide,
@@ -42,10 +45,10 @@ export const navLinks = [
     id: "tech",
     title: "Skills",
   },
-  // {
-  //   id: "experience",
-  //   title: "Work",
-  // },
+  {
+    id: "experience",
+    title: "Experience",
+  },
   {
     id: "work",
     title: "Projects",
@@ -136,29 +139,51 @@ const technologies = [
 
 const experiences = [
   {
-    title: "Frontend Developer Intern",
-    company_name: "IBM CSRBOX",
-    icon: ibm,
-    iconBg: "#E6DEDD",
-    date: "July 2024 – Aug 2024",
+    title: "SDE Intern",
+    company_name: "Samaveda Capital",
+    icon: samaveda,
+    iconBg: "#ffffff",
+    date: "Jan 2026 – Present",
     points: [
-      "Built responsive and cross-browser compatible interfaces using HTML, CSS, JavaScript, and React.js.",
-      "Worked on improving UI/UX of internal tools based on user feedback.",
-      "Collaborated with senior developers to build reusable frontend components.",
-      "Participated in code walkthroughs and contributed to team discussions for better accessibility.",
+      "Built 5+ AI workflows using RAG, LangChain, and Gemini/OpenAI APIs for deal automation.",
+      "Developed 10+ full-stack features/APIs with Next.js, FastAPI, PostgreSQL, and MongoDB.",
+      "Deployed 3+ services via Docker, Vercel, and Render, improving performance by 30%.",
     ],
   },
   {
-    title: "Operation Head",
-    company_name: "IEEE - USICT, Technical Society",
-    icon: ieee,
-    iconBg: "#383E56",
-    date: "Sept 2023 – Aug 2024",
+    title: "ML Trainee",
+    company_name: "Amazon MLSS",
+    icon: amazon,
+    iconBg: "#ff9900",
+    date: "Aug 2025 – Sep 2025",
     points: [
-      "Led public relations and event promotion for IEEE Synapse'9 with over 400 participants.",
-      "Collaborated with multiple tech societies for seamless event coordination and management.",
-      "Enhanced branding and event engagement through effective communication strategies.",
-      "Supported the tech team in designing and improving UI for event platforms.",
+      "Selected from 65,000+ applicants for an intensive program focused on Deep Learning, NLP, and Generative AI.",
+      "Designed and implemented 10+ LLM-based & agentic AI pipelines, improving model reasoning accuracy by 35%.",
+      "Applied prompt engineering, model evaluation, and optimization to build scalable ML workflows.",
+    ],
+  },
+  {
+    title: "Full Stack Developer",
+    company_name: "GirlScript Summer of Code (GSSoC)",
+    icon: gssoc,
+    iconBg: "#e8f5e9",
+    date: "Jul 2025 – Aug 2025",
+    points: [
+      "Engineered and optimized features using React, Next.js, Express.js, and REST APIs across 3 open-source projects.",
+      "Reviewed and merged 100+ pull requests while mentoring 25+ contributors, ensuring code quality.",
+      "Collaborated across distributed teams using Git workflows to improve delivery speed.",
+    ],
+  },
+  {
+    title: "Web Developer Intern",
+    company_name: "IBM SkillsBuild Program",
+    icon: ibm,
+    iconBg: "#E6DEDD",
+    date: "Jun 2024 – Aug 2024",
+    points: [
+      "Produced and optimized responsive web applications using React, Node.js, and modern JavaScript frameworks.",
+      "Implemented automated CI/CD deployments using Vercel and Render, reducing load times by 30%.",
+      "Completed 30+ industry-aligned modules on cloud computing, web development, and software deployment.",
     ],
   },
 ];
@@ -227,7 +252,7 @@ const projects = [
     ],
     image: review,
     source_code_link: "https://github.com/PRATYAKSH15/Elevatr",
-    demo_link: "http://www.demo.com",
+    demo_link: "https://elevatr-sable.vercel.app",
   },
 
   {
@@ -258,7 +283,7 @@ const projects = [
     ],
     image: guidelyai, // replace with imported image variable
     source_code_link: "https://github.com/PRATYAKSH15/GuidelyAI",
-    demo_link: "", // add demo link if available
+    demo_link: "https://guidely-ai-teal.vercel.app",
   },
 
   {
@@ -293,7 +318,7 @@ const projects = [
     ],
     image: mindnest, // replace with imported image variable
     source_code_link: "https://github.com/PRATYAKSH15/MindNest",
-    demo_link: "", // add demo link if available
+    demo_link: "https://mind-nest-nine.vercel.app",
   },
 
   // {
@@ -342,7 +367,7 @@ const projects = [
     ],
     image: nutri,
     source_code_link: "https://github.com/PRATYAKSH15/NutriTrack",
-    demo_link: "http://www.demo.com",
+    demo_link: "",
   },
   {
     name: "ChatGO",
@@ -364,7 +389,7 @@ const projects = [
     ],
     image: jobit,
     source_code_link: "https://github.com/PRATYAKSH15/chatGO",
-    demo_link: "http://www.demo.com",
+    demo_link: "",
   },
   {
     name: "MediSync",
@@ -386,7 +411,7 @@ const projects = [
     ],
     image: tripguide,
     source_code_link: "https://github.com/PRATYAKSH15/MediSync.git",
-    demo_link: "http://www.demo.com",
+    demo_link: "",
   },
   // {
   //   name: "IMDB Review Analyser",

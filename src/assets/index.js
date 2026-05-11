@@ -32,6 +32,9 @@ import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
+import amazon from "./company/amazon.svg";
+import gssoc from "./company/gssoc.png";
+import samaveda from "./company/samaveda.png";
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
@@ -66,6 +69,9 @@ export {
   shopify,
   starbucks,
   tesla,
+  amazon,
+  gssoc,
+  samaveda,
   carrent,
   jobit,
   tripguide,
@@ -79,5 +85,4 @@ export {
   nutri,
   guidelyai,
   mindnest,
-
 };
