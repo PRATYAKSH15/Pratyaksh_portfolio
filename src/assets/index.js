@@ -30,13 +30,17 @@ import mindnest from "./mindnest.png";
 import amazon from "./company/amazon.svg";
 import gssoc from "./company/gssoc.png";
 import samaveda from "./company/samaveda.png";
+import samavedalogo from "./samavedalogo.png";
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 import imdb from "./imdb.png";
 import credit from "./credit.png";
-import whatsapp from "./whatsapp.png";  
+import whatsapp from "./whatsapp.png";
+import citizencare from "./citizencare.png";
+import devcollab from "./devcollab.png";
+import auditoragent from "./auditoragent.png";  
 
 export {
   logo,
@@ -63,6 +67,7 @@ export {
   amazon,
   gssoc,
   samaveda,
+  samavedalogo,
   carrent,
   jobit,
   tripguide,
@@ -75,4 +80,7 @@ export {
   nutri,
   guidelyai,
   mindnest,
+  citizencare,
+  devcollab,
+  auditoragent,
 };

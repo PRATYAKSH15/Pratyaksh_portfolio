@@ -18,6 +18,7 @@ import {
   amazon,
   gssoc,
   samaveda,
+  samavedalogo,
   carrent,
   jobit,
   tripguide,
@@ -29,6 +30,9 @@ import {
   nutri,
   guidelyai,
   mindnest,
+  citizencare,
+  devcollab,
+  auditoragent,
 } from "../assets";
 
 export const navLinks = [
@@ -136,9 +140,9 @@ const experiences = [
   {
     title: "SDE Intern",
     company_name: "Samaveda Capital",
-    icon: samaveda,
+    icon: samavedalogo,
     iconBg: "#ffffff",
-    date: "Jan 2026 – Present",
+    date: "Jan 2026 – June 2026",
     points: [
       "Built 5+ AI workflows using RAG, LangChain, and Gemini/OpenAI APIs for deal automation.",
       "Developed 10+ full-stack features/APIs with Next.js, FastAPI, PostgreSQL, and MongoDB.",
@@ -226,7 +230,82 @@ const testimonials = [
 ];
 
 const projects = [
-
+  {
+    name: "CitizenCare",
+    description:
+      "Citizens report problems. AI analyses them. Admins resolve them. Everyone stays informed — in real time. Features: Report Issues with location/photo, AI Analysis via Groq LLM, My Issues dashboard, Real-time Notifications with Socket.io, Role-based access (Citizen, Dept Admin, Main Admin), Issue Map with India choropleth, Analytics and CSV export.",
+    tags: [
+      {
+        name: "React 19",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Vite",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Tailwind CSS v4",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "Node.js",
+        color: "orange-text-gradient",
+      },
+      {
+        name: "MongoDB",
+        color: "yellow-text-gradient",
+      },
+      {
+        name: "Socket.io",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "Groq AI",
+        color: "green-text-gradient",
+      },
+    ],
+    image: citizencare,
+    source_code_link: "https://github.com/PRATYAKSH15/CitizenCare",
+    demo_link: "",
+  },
+  {
+    name: "DevCollab",
+    description:
+      "A full-stack developer collaboration platform where developers find teammates, build projects together, and ship from one workspace. Features: Smart matching via Jaccard similarity, Real-time chat with Socket.IO, Kanban boards, Milestones with progress tracking, in-app notifications, Public project pages, AI tools (Groq), Redis rate limiting, BullMQ background jobs.",
+    tags: [
+      {
+        name: "Next.js 14",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "TypeScript",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Tailwind CSS",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "Socket.IO",
+        color: "orange-text-gradient",
+      },
+      {
+        name: "Redis",
+        color: "yellow-text-gradient",
+      },
+      {
+        name: "BullMQ",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "Groq AI",
+        color: "green-text-gradient",
+      },
+    ],
+    image: devcollab,
+    source_code_link: "https://github.com/PRATYAKSH15/DevCollab",
+    demo_link: "",
+  },
   {
     name: "Elevatr",
     description:
@@ -265,7 +344,7 @@ const projects = [
       },
       {
         name: "Clerk JWT",
-        color: "purple-text-gradient",
+        color: "pink-text-gradient",
       },
       // {
       //   name: "Inngest",
@@ -285,7 +364,7 @@ const projects = [
     name: "MindNest",
     description:
       "MindNest is a mental health companion platform that offers self-help resources, community forums, and personalized self-assessments, main aim is to provide foster a supportive community.",
-      tags: [
+    tags: [
       {
         name: "ReactJS",
         color: "blue-text-gradient",
@@ -308,7 +387,7 @@ const projects = [
       },
       {
         name: "Clerk JWT",
-        color: "purple-text-gradient",
+        color: "pink-text-gradient",
       },
     ],
     image: mindnest, // replace with imported image variable
@@ -408,102 +487,28 @@ const projects = [
     source_code_link: "https://github.com/PRATYAKSH15/MediSync.git",
     demo_link: "",
   },
-  // {
-  //   name: "IMDB Review Analyser",
-  //   description:
-  //     "A sentiment analysis tool that automatically classifies movie reviews from IMDB as positive or negative using Natural Language Processing (NLP) and Machine Learning.",
-  //   tags: [
-  //     {
-  //       name: "NLP",
-  //       color: "blue-text-gradient",
-  //     },
-  //     {
-  //       name: "machine learning",
-  //       color: "green-text-gradient",
-  //     },
-  //     {
-  //       name: "tensorflow",
-  //       color: "pink-text-gradient",
-  //     },
-  //   ],
-  //   image: imdb,
-  //   source_code_link: "https://github.com/PRATYAKSH15/IMDB-Sentiment-Analysis",
-  //   demo_link: "http://www.demo.com",
-  // },
-  // {
-  //   name: "AI Websearch Agent",
-  //   description:
-  //     "A web search engine that utilizes AI to provide relevant search results and suggestions based on user queries, enhancing the search experience.",
-  //   tags: [
-  //     {
-  //       name: "Langchain",
-  //       color: "blue-text-gradient",
-  //     },
-  //     {
-  //       name: "GroqAPI",
-  //       color: "green-text-gradient",
-  //     },
-  //     {
-  //       name: "web integration",
-  //       color: "pink-text-gradient",
-  //     },
-  //   ],
-  //   image: whatsapp,
-  //   source_code_link: "https://github.com/PRATYAKSH15/Web-Search-Agent",
-  //   demo_link: "http://www.demo.com" ,
-  // },
-  // {
-  //   name: "Credit card fraud detection",
-  //   description:
-  //     "This project focuses on detecting fraudulent credit card transactions using logistic regression. It aims to identify patterns and anomalies in transaction data to mitigate risks in financial systems.",
-  //   tags: [
-  //     {
-  //       name: "Scikit-learn",
-  //       color: "blue-text-gradient",
-  //     },
-  //     {
-  //       name: "python",
-  //       color: "green-text-gradient",
-  //     },
-  //     // {
-  //     //   name: "",
-  //     //   color: "pink-text-gradient",
-  //     // },
-  //   ],
-  //   image: credit,
-  //   source_code_link: "https://github.com/PRATYAKSH15/CreditCard_Fraud",
-  //   demo_link: "http://www.demo.com",
-  // },
+  {
+    name: "Auditor Agent",
+    description:
+      "Forensic document audit in minutes, not months. Upload GST returns, ITRs, bank statements, and Tally exports. Our AI cross-verifies every document and surfaces red flags with cited evidence — the same diligence Big 4 firms deliver, at 10x the speed.",
+    tags: [
+      {
+        name: "AI Forensics",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Document AI",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Groq",
+        color: "orange-text-gradient",
+      },
+    ],
+    image: auditoragent,
+    source_code_link: "https://www.samavedacapital.in/auditor",
+    demo_link: "",
+  },
 ];
-
-// export default socialLinks = [
-//   { name: "GitHub", icon: "/icons/github.svg", url: "https://github.com/your-username" },
-//   { name: "LinkedIn", icon: "/icons/linkedin.svg", url: "https://linkedin.com/in/your-profile" },
-//   { name: "X", icon: "/icons/x.svg", url: "https://x.com/your-handle" },
-//   { name: "LeetCode", icon: "/icons/leetcode.svg", url: "https://leetcode.com/your-handle" },
-//   { name: "Codeforces", icon: "/icons/codeforces.svg", url: "https://codeforces.com/profile/your-handle" },
-//   { name: "GitHub2", icon: "/icons/github.svg", url: "https://github.com/your-username2" },
-// ];
-
-// export const achievements = [
-//   {
-//     title: "Winner - Hackathon 2024",
-//     description: "Secured 1st place among 150+ teams for building an AI-powered job matching platform.",
-//     date: "March 2024",
-//     icon: "/assets/trophy.png", // Optional
-//   },
-//   {
-//     title: "Open Source Contributor",
-//     description: "Contributed to major React libraries, including Formik and React Hook Form.",
-//     date: "Ongoing",
-//     icon: "/assets/github.png",
-//   },
-//   {
-//     title: "Speaker - DevConf India",
-//     description: "Gave a talk on 'Scaling MERN apps with Serverless Architecture'.",
-//     date: "December 2023",
-//     icon: "/assets/mic.png",
-//   },
-// ];
 
 export { services, technologies, experiences, testimonials, projects };
