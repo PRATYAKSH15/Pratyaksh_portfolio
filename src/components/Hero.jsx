@@ -40,7 +40,7 @@ const Hero = () => {
         <p className={`${styles.heroSubText} mt-2 text-white-100`}>
           <span className="text-purple-200">
             <Typewriter
-              words={["Full Stack Developer", "AI-ML Enthusiast"]}
+              words={["AI Engineer", "Full Stack Developer", "RAG & Agentic AI Builder"]}
               loop={true}
               cursor
               cursorStyle="|"
@@ -75,19 +75,22 @@ const Hero = () => {
             variants={fadeIn("", "", 0.1, 1)}
             className="text-secondary text-[16px] sm:text-[17px] leading-[28px] max-w-2xl"
           >
-            I'm Pratyaksh, a Final year B.Tech student in Information Technology
-            at USICT, GGSIPU. I'm passionate about Full-Stack Web Development
-            and have hands-on experience building scalable applications using
-            the MERN and Next.js stacks. I also work with FastAPI for backend
-            development and have strong experience with both SQL and NoSQL
-            databases. I enjoy transforming ideas into impactful, user-friendly
-            products.
+            I'm Pratyaksh, a B.Tech graduate in Information Technology from
+            USICT, GGSIPU, currently working as an SDE Intern at Samaveda
+            Capital, where I build production AI systems using RAG and
+            agentic pipelines. I specialize in full-stack development with
+            Next.js, React, and Node.js, backed by Python and FastAPI on the
+            backend, with strong experience across both SQL and NoSQL
+            databases.
             <br />
             <br />
-            I'm also deeply interested in Machine Learning and Generative AI,
-            always exploring ways to integrate intelligent solutions into modern
-            web applications. I'm a curious learner who thrives on collaboration
-            and loves pushing boundaries to grow in the tech space.
+            I was selected for Amazon's ML Summer School out of 65,000+
+            applicants, and I love turning ideas into real, working products —
+            not just demos. I build my own systems end-to-end, including
+            CitizenCare, an AI-powered civic issue tracking platform, and an
+            AI Profile Builder using Gemini AI. I also mentor contributors in
+            GenAI and full-stack development through GirlScript Summer of
+            Code.
           </motion.p>
 
           {/* Resume Button */}
