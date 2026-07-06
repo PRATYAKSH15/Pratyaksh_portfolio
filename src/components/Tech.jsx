@@ -24,6 +24,10 @@ import {
   SiPytorch,
   SiLangchain,
   SiHuggingface,
+  SiTypescript,
+  SiFastapi,
+  SiSupabase,
+  SiDocker,
 } from "react-icons/si";
 
 const techCategories = [
@@ -33,6 +37,7 @@ const techCategories = [
       { name: "C", icon: <SiC /> },
       { name: "C++", icon: <SiCplusplus /> },
       { name: "Python", icon: <FaPython /> },
+      { name: "TypeScript", icon: <SiTypescript /> },
     ],
   },
   {
@@ -51,7 +56,11 @@ const techCategories = [
     items: [
       { name: "NodeJS", icon: <FaNodeJs /> },
       { name: "ExpressJS", icon: <SiExpress /> },
+      { name: "FastAPI", icon: <SiFastapi /> },
       { name: "Firebase", icon: <SiFirebase /> },
+      { name: "Supabase", icon: <SiSupabase /> },
+      { name: "Docker", icon: <SiDocker /> },
+      { name: "Cloud Computing", icon: "☁️" },
     ],
   },
   {
@@ -59,7 +68,7 @@ const techCategories = [
     items: [
       { name: "MongoDB", icon: <SiMongodb /> },
       { name: "MySQL", icon: <SiMysql /> },
-      { name: "PostgreSQL", icon: <SiPostgresql /> }, // ✅ Added PostgreSQL
+      { name: "PostgreSQL", icon: <SiPostgresql /> },
     ],
   },
   {
@@ -78,6 +87,8 @@ const techCategories = [
       { name: "LLM", icon: "🤖" },
       { name: "LangChain", icon: <SiLangchain /> },
       { name: "HuggingFace", icon: <SiHuggingface /> },
+      { name: "RAG", icon: "📚" },
+      { name: "Agentic AI", icon: "🧠" },
     ],
   },
 ];
@@ -120,81 +131,3 @@ const Tech = () => {
 };
 
 export default SectionWrapper(Tech, "tech");
-
-
-// import React from "react";
-// import { SectionWrapper } from "../hoc";
-// import { motion } from "framer-motion";
-
-// const techStack = {
-//   Languages: ["C", "C++", "Python"],
-//   Frontend: ["HTML", "CSS", "JavaScript", "TailwindCSS", "ReactJS", "NextJS"],
-//   Backend: ["NodeJS", "ExpressJS", "Firebase"],
-//   Databases: ["MongoDB", "MySQL"],
-//   "Machine Learning": [
-//     "TensorFlow",
-//     "scikit-learn",
-//     "Deep Learning",
-//     "Neural Network",
-//   ],
-//   "Generative AI": ["NLP", "LLM", "LangChain", "HuggingFace"],
-// };
-
-// const Tech = () => {
-//   return (
-//     <div className="w-full max-w-5xl mx-auto py-16 px-4">
-//       {/* Heading */}
-//       <h2 className="text-white font-extrabold text-3xl sm:text-4xl md:text-5xl text-center mb-10">
-//         🚀 My Tech Stack
-//       </h2>
-
-//       {/* Code Editor Style Box */}
-//       <motion.div
-//         initial={{ opacity: 0, y: 30 }}
-//         whileInView={{ opacity: 1, y: 0 }}
-//         transition={{ duration: 0.6 }}
-//         viewport={{ once: true }}
-//         className="bg-[#1e1e2e] text-[#d4d4d4] rounded-xl overflow-hidden shadow-2xl border border-[#2e2e3f]"
-//       >
-//         {/* Editor Top Bar */}
-//         <div className="flex items-center gap-2 px-4 py-2 bg-[#2b2b3c] border-b border-[#3a3a4d]">
-//           <div className="w-3 h-3 rounded-full bg-red-500"></div>
-//           <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-//           <div className="w-3 h-3 rounded-full bg-green-500"></div>
-//           <p className="ml-3 text-sm text-gray-400">techStack.js</p>
-//         </div>
-
-//         {/* Code Area */}
-//         <div className="p-6 font-mono text-sm sm:text-base leading-relaxed">
-//           <pre>
-//             <code>
-//               <span className="text-purple-400">const</span>{" "}
-//               <span className="text-pink-400">techStack</span>{" "}
-//               <span className="text-white">= {"{"}</span>
-//               {"\n"}
-//               {Object.entries(techStack).map(([category, items], i) => (
-//                 <div key={i} className="ml-6">
-//                   <span className="text-green-400">"{category}"</span>
-//                   <span className="text-white">: [</span>
-//                   {items.map((item, j) => (
-//                     <span key={j}>
-//                       <span className="text-yellow-300">"{item}"</span>
-//                       {j < items.length - 1 && (
-//                         <span className="text-white">, </span>
-//                       )}
-//                     </span>
-//                   ))}
-//                   <span className="text-white">],</span>
-//                   {"\n"}
-//                 </div>
-//               ))}
-//               <span className="text-white">{"};"}</span>
-//             </code>
-//           </pre>
-//         </div>
-//       </motion.div>
-//     </div>
-//   );
-// };
-
-// export default SectionWrapper(Tech, "tech");
