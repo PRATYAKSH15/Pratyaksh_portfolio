@@ -96,7 +96,7 @@ const Hero = () => {
           {/* Resume Button */}
           <div className="mt-6">
             <a
-              href="https://drive.google.com/file/d/1g_dZogJHins-ci20WJGgncGVpCAOZ_s5/view?usp=sharing"
+              href="https://drive.google.com/file/d/1osI2rC8PxNYxwXS9NLwhhb0ff1LQqRhY/view?usp=drivesdk"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-6 py-3 rounded-2xl border-white-100 bg-gradient-to-r from-purple-800 to-purple-500 text-white font-semibold text-lg shadow-md hover:shadow-xl hover:-translate-y-1 hover:scale-105 transition-all duration-300"
