@@ -27,6 +27,8 @@
 // export default App;
 
 import { BrowserRouter } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 import {
   About,
@@ -49,6 +51,8 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="relative z-0 bg-primary">
+        <Analytics />
+        <SpeedInsights />
         <ScrollProgress />
         <RippleEffect />
         <ScrollToTop />
