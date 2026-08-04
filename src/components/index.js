@@ -10,6 +10,8 @@ import Contact from './Contact';
 import Footer from './Footer';
 import Achievements from './Achievements';
 import RippleEffect from './RippleEffect';
+import ScrollProgress from './ScrollProgress';
+import ScrollToTop from './ScrollToTop';
 
 export {
   Hero,
@@ -27,4 +29,6 @@ export {
   Footer,
   Achievements,
   RippleEffect,
+  ScrollProgress,
+  ScrollToTop,
 }

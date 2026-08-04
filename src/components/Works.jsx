@@ -6,9 +6,13 @@ import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 import Tilt from "react-parallax-tilt";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, Star } from "lucide-react";
+
+const featuredProjects = ["CitizenCare", "DevCollab", "Auditor Agent"];
 
 const ProjectCard = ({ index, name, description, tags, image, source_code_link, demo_link }) => {
+  const isFeatured = featuredProjects.includes(name);
+
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.15, 0.75)}>
       <Tilt
@@ -18,16 +22,28 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link, 
         transitionSpeed={400}
         className="h-full"
       >
-        <div className="group relative h-full rounded-2xl bg-gradient-to-b from-white/15 to-white/5 p-[1px] hover:from-[#915EFF]/60 hover:to-[#915EFF]/10 transition-colors duration-300">
+        <div
+          className={`group relative h-full rounded-2xl p-[1px] transition-all duration-300 ${
+            isFeatured
+              ? "bg-gradient-to-b from-purple-500/80 via-pink-500/40 to-indigo-500/20 shadow-[0_0_25px_rgba(145,94,255,0.3)]"
+              : "bg-gradient-to-b from-white/15 to-white/5 hover:from-[#915EFF]/60 hover:to-[#915EFF]/10"
+          }`}
+        >
           <div className="h-full flex flex-col rounded-2xl bg-[#0d0d1a]/95 backdrop-blur-md overflow-hidden shadow-lg group-hover:shadow-[0_0_35px_rgba(145,94,255,0.25)] transition-shadow duration-300">
-
-            {/* Image */}
+            {/* Image & Featured Badge */}
             <div className="relative overflow-hidden">
               <img
                 src={image}
                 alt={name}
                 className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
               />
+
+              {isFeatured && (
+                <div className="absolute top-3 left-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-[11px] font-bold tracking-wider px-3 py-1 rounded-full shadow-lg flex items-center gap-1 border border-white/20">
+                  <Star className="w-3 h-3 fill-yellow-300 text-yellow-300" /> Featured
+                </div>
+              )}
+
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center gap-3 pb-5">
                 {source_code_link && (
                   <a
@@ -60,7 +76,9 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link, 
 
             {/* Info */}
             <div className="p-5 flex flex-col flex-1">
-              <h3 className="text-white text-lg font-bold tracking-tight">{name}</h3>
+              <h3 className="text-white text-lg font-bold tracking-tight flex items-center justify-between">
+                {name}
+              </h3>
               <p className="text-sm text-secondary mt-2 leading-[22px] flex-1">
                 {description}
               </p>

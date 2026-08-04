@@ -40,33 +40,29 @@ import {
   StarsCanvas,
   Footer,
   Achievements,
-  RippleEffect
+  RippleEffect,
+  ScrollProgress,
+  ScrollToTop,
 } from "./components";
 
 const App = () => {
   return (
     <BrowserRouter>
       <div className="relative z-0 bg-primary">
-         <RippleEffect />
-        {/* Hero section with background */}
-        {/* <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center"> */}
-
+        <ScrollProgress />
+        <RippleEffect />
+        <ScrollToTop />
+        
         <div>
           <Navbar />
           <Hero />
         </div>
         
         {/* Main sections */}
-        {/* <About /> */}
         <Tech />
-
         <Experience />
         <Works />
-
         <Achievements />
-
-        {/* removed feedbacks (experience) for now */}
-        {/* <Feedbacks /> */} 
 
         {/* Contact, stars, and footer together */}
         <div className="relative z-0">

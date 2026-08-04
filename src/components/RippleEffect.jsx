@@ -1,134 +1,102 @@
-// import React, { useState, useEffect } from "react";
-
-// const RippleEffect = () => {
-//   const [ripples, setRipples] = useState([]);
-
-//   const addRipple = (e) => {
-//     const x = e.clientX;
-//     const y = e.clientY;
-//     const newRipple = {
-//       id: Date.now(),
-//       x,
-//       y,
-//     };
-//     setRipples((prev) => [...prev, newRipple]);
-
-//     // Remove ripple after animation
-//     setTimeout(() => {
-//       setRipples((prev) => prev.filter((r) => r.id !== newRipple.id));
-//     }, 1200);
-//   };
-
-//   useEffect(() => {
-//     window.addEventListener("mousemove", addRipple);
-//     return () => window.removeEventListener("mousemove", addRipple);
-//   }, []);
-
-//   return (
-//     <div className="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-[-1]">
-//       {ripples.map((ripple) => (
-//         <span
-//           key={ripple.id}
-//           style={{
-//             left: ripple.x,
-//             top: ripple.y,
-//           }}
-//           className="absolute w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 opacity-70 animate-ripple"
-//         ></span>
-//       ))}
-
-//       <style jsx>{`
-//         .animate-ripple {
-//           animation: ripple-animation 1.2s ease-out forwards;
-//         }
-
-//         @keyframes ripple-animation {
-//           0% {
-//             transform: scale(0.2);
-//             opacity: 0.8;
-//             filter: blur(1px);
-//           }
-//           50% {
-//             transform: scale(2);
-//             opacity: 0.4;
-//             filter: blur(3px);
-//           }
-//           100% {
-//             transform: scale(3.5);
-//             opacity: 0;
-//             filter: blur(6px);
-//           }
-//         }
-//       `}</style>
-//     </div>
-//   );
-// };
-
-// export default RippleEffect;
-
-
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 const RippleEffect = () => {
-  const [ripples, setRipples] = useState([]);
-
-  const addRipple = (e) => {
-    const x = e.clientX;
-    const y = e.clientY;
-    const newRipple = {
-      id: Date.now(),
-      x,
-      y,
-    };
-    setRipples((prev) => [...prev, newRipple]);
-
-    // Remove ripple after animation
-    setTimeout(() => {
-      setRipples((prev) => prev.filter((r) => r.id !== newRipple.id));
-    }, 1000);
-  };
+  const [position, setPosition] = useState({ x: -100, y: -100 });
+  const [ringPosition, setRingPosition] = useState({ x: -100, y: -100 });
+  const [isHovered, setIsHovered] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("mousemove", addRipple);
-    return () => window.removeEventListener("mousemove", addRipple);
-  }, []);
+    let animationFrameId;
+    let targetX = -100;
+    let targetY = -100;
+    let currentX = -100;
+    let currentY = -100;
+
+    // Smooth lerp function for liquid outer ring movement
+    const lerp = (start, end, factor) => start + (end - start) * factor;
+
+    const updatePosition = (e) => {
+      targetX = e.clientX;
+      targetY = e.clientY;
+      setPosition({ x: targetX, y: targetY });
+
+      if (!isVisible) setIsVisible(true);
+
+      // Check if mouse is hovering over interactive elements
+      const target = e.target;
+      const isInteractive =
+        target.closest("a") ||
+        target.closest("button") ||
+        target.closest("input") ||
+        target.closest("textarea") ||
+        target.closest("[role='button']") ||
+        target.tagName === "BUTTON" ||
+        target.tagName === "A";
+
+      setIsHovered(!!isInteractive);
+    };
+
+    const handleMouseDown = () => setIsClicked(true);
+    const handleMouseUp = () => setIsClicked(false);
+    const handleMouseLeave = () => setIsVisible(false);
+    const handleMouseEnter = () => setIsVisible(true);
+
+    window.addEventListener("mousemove", updatePosition);
+    window.addEventListener("mousedown", handleMouseDown);
+    window.addEventListener("mouseup", handleMouseUp);
+    document.body.addEventListener("mouseleave", handleMouseLeave);
+    document.body.addEventListener("mouseenter", handleMouseEnter);
+
+    // Inertia animation loop for smooth outer ring
+    const animateRing = () => {
+      currentX = lerp(currentX, targetX, 0.18);
+      currentY = lerp(currentY, targetY, 0.18);
+
+      setRingPosition({ x: currentX, y: currentY });
+      animationFrameId = requestAnimationFrame(animateRing);
+    };
+
+    animateRing();
+
+    return () => {
+      window.removeEventListener("mousemove", updatePosition);
+      window.removeEventListener("mousedown", handleMouseDown);
+      window.removeEventListener("mouseup", handleMouseUp);
+      document.body.removeEventListener("mouseleave", handleMouseLeave);
+      document.body.removeEventListener("mouseenter", handleMouseEnter);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, [isVisible]);
+
+  if (!isVisible) return null;
 
   return (
-    <div className="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-[-1]">
-      {ripples.map((ripple) => (
-        <span
-          key={ripple.id}
-          style={{
-            left: ripple.x,
-            top: ripple.y,
-          }}
-          className="absolute w-16 h-16 rounded-full animate-ripple bg-white/30"
-        ></span>
-      ))}
+    <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-50 overflow-hidden">
+      {/* Outer Smooth Ring / Spotlight */}
+      <div
+        className={`fixed top-0 left-0 rounded-full transition-transform duration-150 ease-out -translate-x-1/2 -translate-y-1/2 pointer-events-none ${
+          isHovered
+            ? "w-12 h-12 bg-purple-500/15 border border-purple-400/80 shadow-[0_0_20px_rgba(145,94,255,0.4)] scale-125"
+            : isClicked
+            ? "w-8 h-8 bg-purple-500/20 border border-purple-400/60 scale-90"
+            : "w-8 h-8 border border-purple-400/40 bg-purple-500/5 shadow-[0_0_10px_rgba(145,94,255,0.15)]"
+        }`}
+        style={{
+          transform: `translate3d(${ringPosition.x}px, ${ringPosition.y}px, 0) translate(-50%, -50%)`,
+        }}
+      />
 
-      <style jsx>{`
-        .animate-ripple {
-          animation: ripple-animation 1s ease-out forwards;
-        }
-
-        @keyframes ripple-animation {
-          0% {
-            transform: scale(0.3);
-            opacity: 0.3;
-            filter: blur(2px);
-          }
-          50% {
-            transform: scale(1.8);
-            opacity: 0.15;
-            filter: blur(4px);
-          }
-          100% {
-            transform: scale(3);
-            opacity: 0;
-            filter: blur(6px);
-          }
-        }
-      `}</style>
+      {/* Tiny Precision Inner Dot */}
+      <div
+        className={`fixed top-0 left-0 w-2 h-2 rounded-full bg-[#915EFF] shadow-[0_0_8px_#915EFF] transition-transform duration-75 ease-out pointer-events-none ${
+          isHovered ? "scale-150 bg-pink-400" : isClicked ? "scale-75" : "scale-100"
+        }`}
+        style={{
+          transform: `translate3d(${position.x}px, ${position.y}px, 0) translate(-50%, -50%)`,
+        }}
+      />
     </div>
   );
 };

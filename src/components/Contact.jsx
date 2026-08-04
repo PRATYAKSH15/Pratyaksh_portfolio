@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 import {
@@ -9,6 +9,8 @@ import {
   FaGithub,
   FaEye,
   FaRocket,
+  FaCopy,
+  FaCheck,
 } from "react-icons/fa6";
 
 const socials = [
@@ -17,6 +19,7 @@ const socials = [
     icon: <FaEnvelope />,
     label: "Email",
     color: "from-pink-500 to-red-500",
+    isEmail: true,
   },
   {
     href: "https://www.linkedin.com/in/pratyaksh-989922256/",
@@ -45,8 +48,30 @@ const socials = [
 ];
 
 const Contact = () => {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("pratyaksh1594@gmail.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+  };
+
   return (
     <div className="xl:mt-16 flex xl:flex-row flex-col-reverse gap-12 overflow-hidden">
+      {/* Toast notification */}
+      <AnimatePresence>
+        {copied && (
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 bg-emerald-600 text-white px-5 py-2.5 rounded-full shadow-2xl flex items-center gap-2 text-sm font-semibold border border-emerald-400"
+          >
+            <FaCheck className="w-4 h-4" /> Email Copied to Clipboard!
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Left Panel - Connect with Me */}
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
@@ -61,6 +86,19 @@ const Contact = () => {
         <p className="text-secondary text-center mb-4">
           I’m always open to collaborations, opportunities, or just a chat!
         </p>
+
+        {/* Quick Email Display with Copy */}
+        <div className="w-full bg-white/5 border border-white/10 rounded-xl p-3.5 flex items-center justify-between gap-3 text-sm">
+          <span className="text-gray-300 font-mono truncate">pratyaksh1594@gmail.com</span>
+          <button
+            onClick={handleCopyEmail}
+            title="Copy email to clipboard"
+            className="px-3 py-1.5 rounded-lg bg-purple-600/80 hover:bg-purple-600 text-white font-medium flex items-center gap-1.5 transition-all text-xs shrink-0 active:scale-95"
+          >
+            {copied ? <FaCheck className="w-3.5 h-3.5" /> : <FaCopy className="w-3.5 h-3.5" />}
+            {copied ? "Copied" : "Copy"}
+          </button>
+        </div>
 
         {/* Social Links */}
         <div className="w-full flex flex-col gap-4">
@@ -88,8 +126,8 @@ const Contact = () => {
       >
         <motion.div
           animate={{
-            y: [-15, 15, -15], // Floating
-            rotate: [0, 5, -5, 0], // Rocking
+            y: [-15, 15, -15],
+            rotate: [0, 5, -5, 0],
           }}
           transition={{
             y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
