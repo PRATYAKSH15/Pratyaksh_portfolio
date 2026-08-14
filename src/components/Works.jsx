@@ -14,7 +14,7 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link, 
   const isFeatured = featuredProjects.includes(name);
 
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.15, 0.75)}>
+    <motion.div variants={fadeIn("up", "spring", Math.min(index * 0.08, 0.3), 0.6)}>
       <Tilt
         tiltMaxAngleX={8}
         tiltMaxAngleY={8}
@@ -39,12 +39,13 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link, 
               />
 
               {isFeatured && (
-                <div className="absolute top-3 left-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-[11px] font-bold tracking-wider px-3 py-1 rounded-full shadow-lg flex items-center gap-1 border border-white/20">
+                <div className="absolute top-3 left-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-[11px] font-bold tracking-wider px-3 py-1 rounded-full shadow-lg flex items-center gap-1 border border-white/20 z-10">
                   <Star className="w-3 h-3 fill-yellow-300 text-yellow-300" /> Featured
                 </div>
               )}
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center gap-3 pb-5">
+              {/* Action Buttons Overlay (always visible on mobile, hover on desktop) */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center gap-3 pb-5">
                 {source_code_link && (
                   <a
                     href={source_code_link}
@@ -76,9 +77,36 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link, 
 
             {/* Info */}
             <div className="p-5 flex flex-col flex-1">
-              <h3 className="text-white text-lg font-bold tracking-tight flex items-center justify-between">
-                {name}
-              </h3>
+              <div className="flex items-center justify-between gap-2">
+                <h3 className="text-white text-lg font-bold tracking-tight">
+                  {name}
+                </h3>
+                <div className="flex items-center gap-2 sm:hidden">
+                  {source_code_link && (
+                    <a
+                      href={source_code_link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-1.5 rounded-lg bg-white/10 text-white hover:bg-purple-600 transition-colors"
+                      title="Source Code"
+                    >
+                      <Github className="w-4 h-4" />
+                    </a>
+                  )}
+                  {demo_link && (
+                    <a
+                      href={demo_link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-1.5 rounded-lg bg-purple-600 text-white hover:bg-purple-500 transition-colors"
+                      title="Live Demo"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  )}
+                </div>
+              </div>
+
               <p className="text-sm text-secondary mt-2 leading-[22px] flex-1">
                 {description}
               </p>

@@ -15,7 +15,7 @@ import {
 
 const socials = [
   {
-    href: "mailto:pratyaksh1594@gmail.com?subject=Opportunity%20Inquiry%20-%20Hiring%20%2F%20Collaboration&body=Hi%20Pratyaksh,%0A%0AI%20came%20across%20your%20portfolio%20and%20was%20impressed%20by%20your%20work%20in%20AI%20Engineering%20and%20Full-Stack%20Development.%0A%0AI%20would%20love%20to%20discuss%20a%20potential%20opportunity%20with%20you.%0A%0ABest%20regards,%0A[Your%20Name%20%2F%20Company]",
+    href: "https://mail.google.com/mail/?view=cm&fs=1&to=pratyaksh1594@gmail.com&su=Opportunity%20Inquiry%20-%20Hiring%20%2F%20Collaboration&body=Hi%20Pratyaksh,%0A%0AI%20came%20across%20your%20portfolio%20and%20was%20impressed%20by%20your%20work%20in%20AI%20Engineering%20and%20Full-Stack%20Development.%0A%0AI%20would%20love%20to%20discuss%20a%20potential%20opportunity%20with%20you.%0A%0ABest%20regards,%0A[Your%20Name%20%2F%20Company]",
     icon: <FaEnvelope />,
     label: "Email",
     color: "from-pink-500 to-red-500",
@@ -90,9 +90,11 @@ const Contact = () => {
         {/* Quick Email Display with Copy */}
         <div className="w-full bg-white/5 border border-white/10 rounded-xl p-3.5 flex items-center justify-between gap-3 text-sm">
           <a
-            href="mailto:pratyaksh1594@gmail.com?subject=Opportunity%20Inquiry%20-%20Hiring%20%2F%20Collaboration&body=Hi%20Pratyaksh,%0A%0AI%20came%20across%20your%20portfolio%20and%20was%20impressed%20by%20your%20work%20in%20AI%20Engineering%20and%20Full-Stack%20Development.%0A%0AI%20would%20love%20to%20discuss%20a%20potential%20opportunity%20with%20you.%0A%0ABest%20regards,%0A[Your%20Name%20%2F%20Company]"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=pratyaksh1594@gmail.com&su=Opportunity%20Inquiry%20-%20Hiring%20%2F%20Collaboration&body=Hi%20Pratyaksh,%0A%0AI%20came%20across%20your%20portfolio%20and%20was%20impressed%20by%20your%20work%20in%20AI%20Engineering%20and%20Full-Stack%20Development.%0A%0AI%20would%20love%20to%20discuss%20a%20potential%20opportunity%20with%20you.%0A%0ABest%20regards,%0A[Your%20Name%20%2F%20Company]"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-gray-300 hover:text-purple-400 font-mono truncate transition-colors underline-offset-4 hover:underline"
-            title="Send email"
+            title="Open in Gmail"
           >
             pratyaksh1594@gmail.com
           </a>
