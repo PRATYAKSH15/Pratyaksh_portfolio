@@ -99,12 +99,12 @@ const Navbar = () => {
           </ul>
 
           {/* Quick CTA */}
-          <button
-            onClick={() => handleScrollToSection("contact")}
+          <a
+            href="mailto:pratyaksh1594@gmail.com?subject=Opportunity%20Inquiry%20-%20Hiring%20%2F%20Collaboration&body=Hi%20Pratyaksh,%0A%0AI%20came%20across%20your%20portfolio%20and%20was%20impressed%20by%20your%20work%20in%20AI%20Engineering%20and%20Full-Stack%20Development.%0A%0AI%20would%20love%20to%20discuss%20a%20potential%20opportunity%20with%20you.%0A%0ABest%20regards,%0A[Your%20Name%20%2F%20Company]"
             className="px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold text-sm shadow-md hover:shadow-purple-500/40 hover:scale-105 transition-all duration-300"
           >
             Hire Me
-          </button>
+          </a>
         </div>
 
         {/* Mobile Menu Icon */}
@@ -137,15 +137,13 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
-            <button
-              onClick={() => {
-                setToggle(false);
-                handleScrollToSection("contact");
-              }}
-              className="w-full mt-2 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold text-sm text-center shadow-md"
+            <a
+              href="mailto:pratyaksh1594@gmail.com?subject=Opportunity%20Inquiry%20-%20Hiring%20%2F%20Collaboration&body=Hi%20Pratyaksh,%0A%0AI%20came%20across%20your%20portfolio%20and%20was%20impressed%20by%20your%20work%20in%20AI%20Engineering%20and%20Full-Stack%20Development.%0A%0AI%20would%20love%20to%20discuss%20a%20potential%20opportunity%20with%20you.%0A%0ABest%20regards,%0A[Your%20Name%20%2F%20Company]"
+              onClick={() => setToggle(false)}
+              className="w-full mt-2 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold text-sm text-center shadow-md block"
             >
               Hire Me
-            </button>
+            </a>
           </div>
         </div>
       </div>
