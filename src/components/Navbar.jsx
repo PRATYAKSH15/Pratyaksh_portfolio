@@ -5,6 +5,8 @@ import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { menu, close } from "../assets";
 
+import { handleHireMeClick } from "../utils/email";
+
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
@@ -100,9 +102,8 @@ const Navbar = () => {
 
           {/* Quick CTA */}
           <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=pratyaksh1594@gmail.com&su=Opportunity%20Inquiry%20-%20Hiring%20%2F%20Collaboration&body=Hi%20Pratyaksh,%0A%0AI%20came%20across%20your%20portfolio%20and%20was%20impressed%20by%20your%20work%20in%20AI%20Engineering%20and%20Full-Stack%20Development.%0A%0AI%20would%20love%20to%20discuss%20a%20potential%20opportunity%20with%20you.%0A%0ABest%20regards,%0A[Your%20Name%20%2F%20Company]"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:pratyaksh1594@gmail.com"
+            onClick={handleHireMeClick}
             className="px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold text-sm shadow-md hover:shadow-purple-500/40 hover:scale-105 transition-all duration-300"
           >
             Hire Me
@@ -140,10 +141,11 @@ const Navbar = () => {
               ))}
             </ul>
             <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=pratyaksh1594@gmail.com&su=Opportunity%20Inquiry%20-%20Hiring%20%2F%20Collaboration&body=Hi%20Pratyaksh,%0A%0AI%20came%20across%20your%20portfolio%20and%20was%20impressed%20by%20your%20work%20in%20AI%20Engineering%20and%20Full-Stack%20Development.%0A%0AI%20would%20love%20to%20discuss%20a%20potential%20opportunity%20with%20you.%0A%0ABest%20regards,%0A[Your%20Name%20%2F%20Company]"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setToggle(false)}
+              href="mailto:pratyaksh1594@gmail.com"
+              onClick={(e) => {
+                setToggle(false);
+                handleHireMeClick(e);
+              }}
               className="w-full mt-2 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold text-sm text-center shadow-md block"
             >
               Hire Me
