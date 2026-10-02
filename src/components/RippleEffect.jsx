@@ -6,8 +6,14 @@ const RippleEffect = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isFinePointer, setIsFinePointer] = useState(true);
 
   useEffect(() => {
+    // Check if device supports fine mouse pointer
+    if (typeof window !== "undefined" && window.matchMedia) {
+      setIsFinePointer(window.matchMedia("(pointer: fine)").matches);
+    }
+
     let animationFrameId;
     let targetX = -100;
     let targetY = -100;
@@ -24,7 +30,6 @@ const RippleEffect = () => {
 
       if (!isVisible) setIsVisible(true);
 
-      // Check if mouse is hovering over interactive elements
       const target = e.target;
       const isInteractive =
         target.closest("a") ||
@@ -49,10 +54,9 @@ const RippleEffect = () => {
     document.body.addEventListener("mouseleave", handleMouseLeave);
     document.body.addEventListener("mouseenter", handleMouseEnter);
 
-    // Inertia animation loop for smooth outer ring
     const animateRing = () => {
-      currentX = lerp(currentX, targetX, 0.18);
-      currentY = lerp(currentY, targetY, 0.18);
+      currentX = lerp(currentX, targetX, 0.2);
+      currentY = lerp(currentY, targetY, 0.2);
 
       setRingPosition({ x: currentX, y: currentY });
       animationFrameId = requestAnimationFrame(animateRing);
@@ -70,18 +74,18 @@ const RippleEffect = () => {
     };
   }, [isVisible]);
 
-  if (!isVisible) return null;
+  if (!isVisible || !isFinePointer) return null;
 
   return (
     <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-50 overflow-hidden">
-      {/* Outer Smooth Ring / Spotlight */}
+      {/* Outer Smooth Ring */}
       <div
-        className={`fixed top-0 left-0 rounded-full transition-transform duration-150 ease-out -translate-x-1/2 -translate-y-1/2 pointer-events-none ${
+        className={`fixed top-0 left-0 rounded-full transition-transform duration-150 ease-out pointer-events-none ${
           isHovered
-            ? "w-12 h-12 bg-purple-500/15 border border-purple-400/80 shadow-[0_0_20px_rgba(145,94,255,0.4)] scale-125"
+            ? "w-11 h-11 bg-indigo-500/10 border border-indigo-500/70 shadow-[0_0_15px_rgba(99,102,241,0.25)] scale-125"
             : isClicked
-            ? "w-8 h-8 bg-purple-500/20 border border-purple-400/60 scale-90"
-            : "w-8 h-8 border border-purple-400/40 bg-purple-500/5 shadow-[0_0_10px_rgba(145,94,255,0.15)]"
+            ? "w-8 h-8 bg-indigo-500/15 border border-indigo-500/60 scale-90"
+            : "w-8 h-8 border border-indigo-400/40 bg-indigo-500/5 shadow-xs"
         }`}
         style={{
           transform: `translate3d(${ringPosition.x}px, ${ringPosition.y}px, 0) translate(-50%, -50%)`,
@@ -90,8 +94,8 @@ const RippleEffect = () => {
 
       {/* Tiny Precision Inner Dot */}
       <div
-        className={`fixed top-0 left-0 w-2 h-2 rounded-full bg-[#915EFF] shadow-[0_0_8px_#915EFF] transition-transform duration-75 ease-out pointer-events-none ${
-          isHovered ? "scale-150 bg-pink-400" : isClicked ? "scale-75" : "scale-100"
+        className={`fixed top-0 left-0 w-1.5 h-1.5 rounded-full bg-indigo-600 transition-transform duration-75 ease-out pointer-events-none ${
+          isHovered ? "scale-150 bg-violet-600" : isClicked ? "scale-75" : "scale-100"
         }`}
         style={{
           transform: `translate3d(${position.x}px, ${position.y}px, 0) translate(-50%, -50%)`,

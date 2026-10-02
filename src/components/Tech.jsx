@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { SectionWrapper } from "../hoc";
 import { motion } from "framer-motion";
+import { styles } from "../styles";
 import {
   FaPython,
   FaHtml5,
@@ -13,6 +14,9 @@ import {
   FaCloud,
   FaDatabase,
   FaComments,
+  FaCode,
+  FaServer,
+  FaLayerGroup,
 } from "react-icons/fa";
 import {
   SiC,
@@ -35,107 +39,157 @@ import {
   SiDocker,
   SiTailwindcss,
   SiOpenai,
+  SiRedux,
 } from "react-icons/si";
 
 const techCategories = [
   {
-    category: "Languages",
+    category: "Generative AI & LLMs",
+    badge: "Specialization",
+    badgeColor: "bg-purple-50 text-purple-700 border-purple-200",
+    icon: <FaBrain className="text-purple-600" />,
     items: [
-      { name: "C", icon: <SiC className="text-blue-500" /> },
-      { name: "C++", icon: <SiCplusplus className="text-blue-600" /> },
-      { name: "Python", icon: <FaPython className="text-yellow-400" /> },
-      { name: "TypeScript", icon: <SiTypescript className="text-blue-400" /> },
+      { name: "RAG Pipelines", icon: <FaDatabase className="text-indigo-600" />, highlight: true },
+      { name: "Agentic AI", icon: <FaBrain className="text-purple-600" />, highlight: true },
+      { name: "LangChain", icon: <SiLangchain className="text-emerald-600" /> },
+      { name: "OpenAI / LLMs", icon: <SiOpenai className="text-emerald-700" /> },
+      { name: "Hugging Face", icon: <SiHuggingface className="text-amber-500" /> },
+      { name: "NLP Systems", icon: <FaComments className="text-pink-500" /> },
     ],
   },
   {
-    category: "Frontend",
+    category: "Frontend & Full Stack",
+    badge: "Core Stack",
+    badgeColor: "bg-blue-50 text-blue-700 border-blue-200",
+    icon: <FaLayerGroup className="text-blue-600" />,
     items: [
-      { name: "HTML", icon: <FaHtml5 className="text-orange-500" /> },
-      { name: "CSS", icon: <FaCss3Alt className="text-blue-500" /> },
-      { name: "JavaScript", icon: <FaJsSquare className="text-yellow-300" /> },
-      { name: "TailwindCSS", icon: <SiTailwindcss className="text-cyan-400" /> },
-      { name: "ReactJS", icon: <FaReact className="text-cyan-400" /> },
-      { name: "NextJS", icon: <SiNextdotjs className="text-white" /> },
+      { name: "Next.js", icon: <SiNextdotjs className="text-slate-900" />, highlight: true },
+      { name: "React.js", icon: <FaReact className="text-cyan-500" />, highlight: true },
+      { name: "TypeScript", icon: <SiTypescript className="text-blue-600" /> },
+      { name: "Tailwind CSS", icon: <SiTailwindcss className="text-cyan-500" /> },
+      { name: "JavaScript", icon: <FaJsSquare className="text-amber-400" /> },
+      { name: "Redux Toolkit", icon: <SiRedux className="text-purple-600" /> },
     ],
   },
   {
     category: "Backend & Cloud",
+    badge: "Scalability",
+    badgeColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
+    icon: <FaServer className="text-emerald-600" />,
     items: [
-      { name: "NodeJS", icon: <FaNodeJs className="text-green-500" /> },
-      { name: "ExpressJS", icon: <SiExpress className="text-gray-300" /> },
-      { name: "FastAPI", icon: <SiFastapi className="text-teal-400" /> },
-      { name: "Firebase", icon: <SiFirebase className="text-yellow-500" /> },
-      { name: "Supabase", icon: <SiSupabase className="text-emerald-400" /> },
-      { name: "Docker", icon: <SiDocker className="text-blue-400" /> },
-      { name: "Cloud", icon: <FaCloud className="text-[#915EFF]" /> },
+      { name: "FastAPI", icon: <SiFastapi className="text-teal-600" />, highlight: true },
+      { name: "Node.js", icon: <FaNodeJs className="text-emerald-600" /> },
+      { name: "Express.js", icon: <SiExpress className="text-slate-700" /> },
+      { name: "Docker", icon: <SiDocker className="text-sky-600" /> },
+      { name: "Supabase", icon: <SiSupabase className="text-emerald-500" /> },
+      { name: "Firebase", icon: <SiFirebase className="text-amber-500" /> },
     ],
   },
   {
-    category: "Databases",
+    category: "Databases & Storage",
+    badge: "SQL & NoSQL",
+    badgeColor: "bg-indigo-50 text-indigo-700 border-indigo-200",
+    icon: <FaDatabase className="text-indigo-600" />,
     items: [
-      { name: "MongoDB", icon: <SiMongodb className="text-green-500" /> },
-      { name: "MySQL", icon: <SiMysql className="text-blue-400" /> },
-      { name: "PostgreSQL", icon: <SiPostgresql className="text-blue-500" /> },
+      { name: "PostgreSQL", icon: <SiPostgresql className="text-blue-700" />, highlight: true },
+      { name: "MongoDB", icon: <SiMongodb className="text-emerald-600" />, highlight: true },
+      { name: "MySQL", icon: <SiMysql className="text-sky-700" /> },
     ],
   },
   {
-    category: "Machine Learning",
+    category: "Machine Learning & Data",
+    badge: "Amazon MLSS",
+    badgeColor: "bg-amber-50 text-amber-700 border-amber-200",
+    icon: <FaRobot className="text-amber-600" />,
     items: [
-      { name: "TensorFlow", icon: <SiTensorflow className="text-orange-500" /> },
-      { name: "scikit-learn", icon: <SiScikitlearn className="text-orange-400" /> },
       { name: "PyTorch", icon: <SiPytorch className="text-red-500" /> },
-      { name: "NumPy", icon: <SiNumpy className="text-blue-400" /> },
+      { name: "TensorFlow", icon: <SiTensorflow className="text-orange-500" /> },
+      { name: "scikit-learn", icon: <SiScikitlearn className="text-amber-600" /> },
+      { name: "NumPy", icon: <SiNumpy className="text-blue-500" /> },
     ],
   },
   {
-    category: "Generative AI",
+    category: "Core Languages",
+    badge: "Algorithms & DSA",
+    badgeColor: "bg-rose-50 text-rose-700 border-rose-200",
+    icon: <FaCode className="text-rose-600" />,
     items: [
-      { name: "NLP", icon: <FaComments className="text-pink-400" /> },
-      { name: "LLM", icon: <SiOpenai className="text-emerald-400" /> },
-      { name: "LangChain", icon: <SiLangchain className="text-emerald-300" /> },
-      { name: "HuggingFace", icon: <SiHuggingface className="text-yellow-400" /> },
-      { name: "RAG", icon: <FaDatabase className="text-purple-400" /> },
-      { name: "Agentic AI", icon: <FaBrain className="text-[#915EFF]" /> },
+      { name: "C++", icon: <SiCplusplus className="text-blue-600" />, highlight: true },
+      { name: "Python", icon: <FaPython className="text-amber-500" />, highlight: true },
+      { name: "C", icon: <SiC className="text-slate-600" /> },
+      { name: "TypeScript", icon: <SiTypescript className="text-blue-600" /> },
     ],
   },
 ];
 
 const Tech = () => {
   return (
-    <div className="w-full max-w-6xl mx-auto py-12 px-4">
-      {/* Heading */}
-      <div className="text-center mb-12">
-        <p className="sm:text-[18px] text-[14px] text-secondary uppercase tracking-wider font-semibold">
-          Skills & Toolkit
-        </p>
-        <h2 className="text-white font-extrabold md:text-[50px] sm:text-[40px] xs:text-[35px] text-[30px]">
-          My Tech Stack
+    <div className="w-full max-w-7xl mx-auto py-8 px-2 sm:px-4">
+      {/* Section Header */}
+      <div className="text-center max-w-2xl mx-auto mb-12">
+        <span className={styles.sectionSubText}>Technical Proficiency</span>
+        <h2 className={styles.sectionHeadText}>
+          Skills & <span className="text-gradient-brand">Technologies</span>
         </h2>
+        <p className="mt-3 text-slate-600 text-sm sm:text-base">
+          A comprehensive toolkit spanning generative AI, full-stack systems, 
+          and scalable cloud backends built for production environments.
+        </p>
       </div>
 
-      {/* Grid by categories */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* Bento Grid layout */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {techCategories.map((cat, idx) => (
           <motion.div
             key={idx}
-            whileHover={{ y: -6 }}
-            className="bg-[#0d0d1a]/90 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-[#915EFF]/60 transition-all duration-300 hover:shadow-[0_0_30px_rgba(145,94,255,0.25)] flex flex-col justify-between"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: idx * 0.08 }}
+            className="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-xs hover:shadow-card-hover hover:border-indigo-300 transition-all duration-300 flex flex-col justify-between group"
           >
-            <h3 className="text-[#915EFF] text-lg font-bold mb-6 text-center border-b border-white/10 pb-3 tracking-wide">
-              {cat.category}
-            </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 place-items-center">
-              {cat.items.map((item, i) => (
-                <div
-                  key={i}
-                  className="flex flex-col items-center gap-2 text-white/80 hover:text-white transition-all duration-200 hover:scale-110"
-                >
-                  <div className="text-3xl p-2.5 rounded-xl bg-white/5 border border-white/5 shadow-inner">
-                    {item.icon}
-                  </div>
-                  <p className="text-xs font-medium text-center">{item.name}</p>
+            <div>
+              {/* Category Header */}
+              <div className="flex items-center justify-between gap-2 pb-4 mb-4 border-b border-slate-100">
+                <div className="flex items-center gap-2.5">
+                  <span className="p-2 rounded-xl bg-slate-50 border border-slate-100 text-base">
+                    {cat.icon}
+                  </span>
+                  <h3 className="text-slate-900 font-bold text-base tracking-tight">
+                    {cat.category}
+                  </h3>
                 </div>
-              ))}
+                <span
+                  className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border ${cat.badgeColor}`}
+                >
+                  {cat.badge}
+                </span>
+              </div>
+
+              {/* Items grid */}
+              <div className="grid grid-cols-2 gap-2.5">
+                {cat.items.map((item, i) => (
+                  <div
+                    key={i}
+                    className={`flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-200 ${
+                      item.highlight
+                        ? "bg-indigo-50/50 border border-indigo-100 text-slate-800 hover:bg-indigo-100/60 hover:border-indigo-200"
+                        : "bg-slate-50/80 border border-slate-200/60 text-slate-700 hover:bg-white hover:border-slate-300 hover:shadow-xs"
+                    }`}
+                  >
+                    <span className="text-base shrink-0">{item.icon}</span>
+                    <span className="truncate">{item.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Subtle bottom count indicator */}
+            <div className="mt-5 pt-3 border-t border-slate-50 flex items-center justify-between text-[11px] text-slate-500 font-medium">
+              <span>{cat.items.length} tools & frameworks</span>
+              <span className="text-indigo-600 font-semibold group-hover:translate-x-0.5 transition-transform">
+                Verified in projects →
+              </span>
             </div>
           </motion.div>
         ))}
