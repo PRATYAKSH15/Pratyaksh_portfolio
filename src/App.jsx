@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
@@ -16,10 +17,12 @@ import {
   RippleEffect,
   ScrollProgress,
   ScrollToTop,
+  CommandPalette,
 } from "./components";
 
 const MainLayout = () => {
   const { theme } = useTheme();
+  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
 
   return (
     <div className="relative z-0 bg-[#f8fafc] text-slate-900 min-h-screen selection:bg-slate-200 selection:text-slate-900 font-sans transition-colors duration-300">
@@ -28,6 +31,12 @@ const MainLayout = () => {
       <ScrollProgress />
       <RippleEffect />
       <ScrollToTop />
+
+      {/* Global Command Palette Modal */}
+      <CommandPalette
+        isOpen={isCommandPaletteOpen}
+        setIsOpen={setIsCommandPaletteOpen}
+      />
 
       {/* Ambient Decorative Dynamic Light Orbs & Grid Pattern */}
       <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden">
@@ -48,7 +57,7 @@ const MainLayout = () => {
 
       {/* Header & Hero */}
       <div className="relative">
-        <Navbar />
+        <Navbar openCommandPalette={() => setIsCommandPaletteOpen(true)} />
         <Hero />
       </div>
 

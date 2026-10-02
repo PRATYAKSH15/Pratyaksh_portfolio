@@ -49,7 +49,7 @@ const channels = [
     badgeColor: "bg-amber-50 text-amber-700 border-amber-200",
   },
   {
-    href: "https://drive.google.com/file/d/1osI2rC8PxNYxwXS9NLwhhb0ff1LQqRhY/view?usp=drivesdk",
+    href: "https://drive.google.com/file/d/1f_tVjlefw_WFc0gBkleYe_H84luB5oj8/view?usp=sharing",
     icon: <ArrowUpRight className="w-5 h-5 text-emerald-600" />,
     title: "Curriculum Vitae",
     handle: "View Latest Resume",

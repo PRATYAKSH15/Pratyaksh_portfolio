@@ -6,9 +6,9 @@ import { menu, close } from "../assets";
 import { handleHireMeClick } from "../utils/email";
 import { useTheme } from "../context/ThemeContext";
 import AccentColorSwitcher from "./AccentColorSwitcher";
-import { Sparkles, ArrowUpRight } from "lucide-react";
+import { Sparkles, ArrowUpRight, Search, Command } from "lucide-react";
 
-const Navbar = () => {
+const Navbar = ({ openCommandPalette }) => {
   const { theme } = useTheme();
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
@@ -125,13 +125,36 @@ const Navbar = () => {
           </ul>
         </div>
 
-        {/* Quick CTA Actions & Accent Color Switcher */}
+        {/* Quick CTA Actions, Search & Accent Color Switcher */}
         <div className="hidden sm:flex items-center gap-2.5">
+          {/* Command Palette Trigger (Desktop) */}
+          <button
+            onClick={openCommandPalette}
+            className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100/80 hover:bg-slate-200/70 border border-slate-200/80 text-slate-500 hover:text-slate-800 text-xs font-medium transition-all shadow-2xs"
+            title="Search & Commands (Ctrl + K)"
+          >
+            <Search className="w-3.5 h-3.5 text-slate-400" />
+            <span className="text-slate-500 text-xs">Search...</span>
+            <kbd className="inline-flex items-center gap-0.5 text-[10px] font-semibold text-slate-400 bg-white border border-slate-200 px-1.5 py-0.5 rounded shadow-2xs font-mono">
+              Ctrl K
+            </kbd>
+          </button>
+
+          {/* Icon-only Search button for medium screens */}
+          <button
+            onClick={openCommandPalette}
+            className="lg:hidden p-2 rounded-full bg-slate-100 hover:bg-slate-200/80 border border-slate-200/80 text-slate-600 hover:text-slate-900 transition-all shadow-xs"
+            title="Search & Commands (Ctrl + K)"
+            aria-label="Search"
+          >
+            <Search className="w-3.5 h-3.5" />
+          </button>
+
           {/* Accent Color Switcher */}
           <AccentColorSwitcher />
 
           <a
-            href="https://drive.google.com/file/d/1osI2rC8PxNYxwXS9NLwhhb0ff1LQqRhY/view?usp=drivesdk"
+            href="https://drive.google.com/file/d/1f_tVjlefw_WFc0gBkleYe_H84luB5oj8/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="text-xs font-semibold text-slate-700 hover:text-slate-900 px-3.5 py-2 rounded-full border border-slate-200/80 hover:border-slate-300 hover:bg-slate-50 transition-all duration-200 flex items-center gap-1"
@@ -151,6 +174,15 @@ const Navbar = () => {
 
         {/* Mobile Header Controls */}
         <div className="sm:hidden flex items-center gap-2">
+          {/* Quick Search on Mobile */}
+          <button
+            onClick={openCommandPalette}
+            aria-label="Search and commands"
+            className="p-2 rounded-xl bg-white border border-slate-200/80 shadow-xs text-slate-600 hover:text-slate-900"
+          >
+            <Search className="w-4 h-4" />
+          </button>
+
           <AccentColorSwitcher />
 
           <button
@@ -170,6 +202,23 @@ const Navbar = () => {
       {/* Mobile Drawer */}
       {toggle && (
         <div className="sm:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-2xl border-b border-slate-200/90 shadow-xl px-6 py-6 transition-all duration-300">
+          {/* Search Bar in Mobile Menu */}
+          <button
+            onClick={() => {
+              setToggle(false);
+              if (openCommandPalette) openCommandPalette();
+            }}
+            className="w-full flex items-center justify-between p-2.5 mb-4 rounded-xl bg-slate-50 border border-slate-200/80 text-slate-700 text-xs font-semibold"
+          >
+            <div className="flex items-center gap-2">
+              <Search className="w-4 h-4 text-slate-400" />
+              <span>Search & Command Palette</span>
+            </div>
+            <kbd className="px-1.5 py-0.5 rounded bg-white border border-slate-200 font-mono text-[10px]">
+              Ctrl K
+            </kbd>
+          </button>
+
           <ul className="list-none flex flex-col gap-2">
             {navLinks.map((nav) => {
               const isActive = active === nav.id;
@@ -200,7 +249,7 @@ const Navbar = () => {
 
           <div className="mt-5 pt-4 border-t border-slate-100 flex flex-col gap-2.5">
             <a
-              href="https://drive.google.com/file/d/1osI2rC8PxNYxwXS9NLwhhb0ff1LQqRhY/view?usp=drivesdk"
+              href="https://drive.google.com/file/d/1f_tVjlefw_WFc0gBkleYe_H84luB5oj8/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full text-center py-2.5 rounded-xl border border-slate-200 text-slate-700 font-medium text-sm flex items-center justify-center gap-1.5 hover:bg-slate-50"

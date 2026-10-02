@@ -2,8 +2,11 @@ import React from "react";
 import { FaGithub, FaLinkedin, FaXTwitter, FaCode } from "react-icons/fa6";
 import { SiLeetcode } from "react-icons/si";
 import { ArrowUp, Heart, Sparkles } from "lucide-react";
+import { useTheme } from "../context/ThemeContext";
 
 const Footer = () => {
+  const { theme } = useTheme();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -16,14 +19,21 @@ const Footer = () => {
           <div className="flex flex-col items-center md:items-start text-center md:text-left gap-1">
             <div className="flex items-center gap-2">
               <span className="text-xl font-bold tracking-tight text-slate-900">
-                Pratyaksh<span className="text-indigo-600">.</span>
+                Pratyaksh<span style={{ color: theme.color }}>.</span>
               </span>
-              <span className="text-xs px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700 font-semibold border border-indigo-100">
+              <span
+                className="text-xs px-2.5 py-0.5 rounded-full font-semibold border"
+                style={{
+                  backgroundColor: `${theme.color}15`,
+                  color: theme.primaryHex,
+                  borderColor: `${theme.color}30`,
+                }}
+              >
                 Portfolio 2026
               </span>
             </div>
             <p className="text-xs text-slate-500 max-w-sm">
-              SDE Intern at Samaveda Capital · Amazon ML Summer School Alumni · USICT GGSIPU
+              Software Engineer & AI Builder · Amazon ML Summer School Alumni · USICT GGSIPU
             </p>
           </div>
 
@@ -87,7 +97,8 @@ const Footer = () => {
 
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-1 text-slate-600 hover:text-indigo-600 font-semibold transition-colors"
+            className="flex items-center gap-1 text-slate-600 font-semibold transition-colors hover:opacity-80"
+            style={{ color: theme.primaryHex }}
           >
             Back to Top <ArrowUp className="w-3.5 h-3.5" />
           </button>

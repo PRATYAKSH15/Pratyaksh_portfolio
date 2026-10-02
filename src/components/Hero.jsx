@@ -123,7 +123,7 @@ const Hero = () => {
             {/* Bio paragraph */}
             <p className="mt-5 text-slate-600 text-base sm:text-[17px] leading-relaxed max-w-2xl font-normal">
               B.Tech in Information Technology from <span className="font-semibold text-slate-800">USICT, GGSIPU</span>, 
-              currently working as an <span className="font-semibold text-slate-800">SDE Intern at Samaveda Capital</span> building 
+              with software engineering experience at <span className="font-semibold text-slate-800">Samaveda Capital</span> building 
               production RAG & deal automation pipelines. Selected for <span className="font-semibold text-slate-800">Amazon ML Summer School</span> (top 5% of 65,000+ applicants), 
               building end-to-end full-stack products from idea to production scale.
             </p>
@@ -131,7 +131,7 @@ const Hero = () => {
             {/* Dual CTAs & Quick Email Copy */}
             <div className="mt-8 flex items-center justify-center lg:justify-start gap-3.5 flex-wrap w-full">
               <a
-                href="https://drive.google.com/file/d/1osI2rC8PxNYxwXS9NLwhhb0ff1LQqRhY/view?usp=drivesdk"
+                href="https://drive.google.com/file/d/1f_tVjlefw_WFc0gBkleYe_H84luB5oj8/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`px-6 py-3 rounded-xl bg-gradient-to-r ${theme.gradientClass} text-white font-semibold text-sm shadow-md transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-1.5`}
@@ -228,7 +228,7 @@ const Hero = () => {
                 />
               </div>
 
-              {/* Floating Badge 1: Samaveda Capital */}
+              {/* Floating Badge 1: Software Engineer */}
               <motion.div
                 animate={{ y: [-4, 4, -4] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -244,8 +244,8 @@ const Hero = () => {
                   <Briefcase className="w-4 h-4" />
                 </div>
                 <div>
-                  <p className="text-[11px] font-bold text-slate-800 leading-tight">SDE Intern</p>
-                  <p className="text-[10px] text-slate-500 font-medium">Samaveda Capital</p>
+                  <p className="text-[11px] font-bold text-slate-800 leading-tight">Software Engineer</p>
+                  <p className="text-[10px] text-slate-500 font-medium">Full-Stack & AI</p>
                 </div>
               </motion.div>
 

@@ -13,6 +13,7 @@ import RippleEffect from './RippleEffect';
 import ScrollProgress from './ScrollProgress';
 import ScrollToTop from './ScrollToTop';
 import AccentColorSwitcher from './AccentColorSwitcher';
+import CommandPalette from './CommandPalette';
 
 export {
   Hero,
@@ -33,4 +34,5 @@ export {
   ScrollProgress,
   ScrollToTop,
   AccentColorSwitcher,
+  CommandPalette,
 }

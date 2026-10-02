@@ -39,8 +39,8 @@ const About = () => {
       >
         <>
           Hi, myself Pratyaksh — I recently graduated with a B.Tech in
-          Information Technology from USICT, GGSIPU. I'm currently working as
-          an SDE Intern at Samaveda Capital, where I build production AI
+          Information Technology from USICT, GGSIPU. With software engineering experience
+          at Samaveda Capital, I build production AI
           systems using RAG and agentic pipelines. I'm passionate about
           full-stack web development and have hands-on experience building
           scalable applications using the MERN and Next.js stacks, backed by

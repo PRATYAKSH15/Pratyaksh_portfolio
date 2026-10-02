@@ -2,24 +2,9 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 
 export const themes = [
   {
-    id: "indigo",
-    name: "Electric Indigo",
-    tag: "Default",
-    color: "#6366f1",
-    primaryHex: "#4f46e5",
-    secondaryHex: "#7c3aed",
-    gradientClass: "from-indigo-600 via-indigo-600 to-violet-600",
-    gradientHover: "hover:from-indigo-700 hover:via-indigo-700 hover:to-violet-700",
-    lightBgClass: "bg-indigo-50/80",
-    borderClass: "border-indigo-200/80",
-    textClass: "text-indigo-600",
-    badgeBg: "bg-indigo-50 text-indigo-700 border-indigo-200/60",
-    previewClass: "bg-indigo-600",
-  },
-  {
     id: "emerald",
     name: "Emerald Green",
-    tag: "SaaS / Vercel",
+    tag: "Default · SaaS",
     color: "#10b981",
     primaryHex: "#059669",
     secondaryHex: "#0d9488",
@@ -30,6 +15,21 @@ export const themes = [
     textClass: "text-emerald-600",
     badgeBg: "bg-emerald-50 text-emerald-700 border-emerald-200/60",
     previewClass: "bg-emerald-600",
+  },
+  {
+    id: "indigo",
+    name: "Electric Indigo",
+    tag: "Modern AI",
+    color: "#6366f1",
+    primaryHex: "#4f46e5",
+    secondaryHex: "#7c3aed",
+    gradientClass: "from-indigo-600 via-indigo-600 to-violet-600",
+    gradientHover: "hover:from-indigo-700 hover:via-indigo-700 hover:to-violet-700",
+    lightBgClass: "bg-indigo-50/80",
+    borderClass: "border-indigo-200/80",
+    textClass: "text-indigo-600",
+    badgeBg: "bg-indigo-50 text-indigo-700 border-indigo-200/60",
+    previewClass: "bg-indigo-600",
   },
   {
     id: "sapphire",
@@ -64,7 +64,7 @@ export const themes = [
 ];
 
 const ThemeContext = createContext({
-  accent: "indigo",
+  accent: "emerald",
   theme: themes[0],
   setAccent: () => {},
 });
@@ -72,6 +72,13 @@ const ThemeContext = createContext({
 export const ThemeProvider = ({ children }) => {
   const [accent, setAccentState] = useState(() => {
     try {
+      const v2Initialized = localStorage.getItem("portfolio-default-emerald-v1");
+      if (!v2Initialized) {
+        localStorage.setItem("portfolio-default-emerald-v1", "true");
+        localStorage.setItem("portfolio-accent-theme", "emerald");
+        return "emerald";
+      }
+
       const saved = localStorage.getItem("portfolio-accent-theme");
       if (saved && themes.some((t) => t.id === saved)) {
         return saved;
@@ -79,7 +86,7 @@ export const ThemeProvider = ({ children }) => {
     } catch (e) {
       // ignore localStorage error in private modes
     }
-    return "indigo";
+    return "emerald";
   });
 
   const currentTheme = themes.find((t) => t.id === accent) || themes[0];
