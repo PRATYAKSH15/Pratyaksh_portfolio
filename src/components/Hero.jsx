@@ -4,6 +4,7 @@ import { styles } from "../styles";
 import { mypic } from "../assets";
 import { fadeIn } from "../utils/motion";
 import { Typewriter } from "react-simple-typewriter";
+import { useTheme } from "../context/ThemeContext";
 import { ArrowUpRight, Copy, Check, Sparkles, Mail, Briefcase, Award } from "lucide-react";
 
 // Icons
@@ -51,6 +52,7 @@ const stats = [
 ];
 
 const Hero = () => {
+  const { theme } = useTheme();
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = () => {
@@ -94,7 +96,13 @@ const Hero = () => {
             {/* Sub-headline with dynamic typed roles */}
             <div className="mt-3 text-lg sm:text-xl lg:text-2xl font-semibold text-slate-700 min-h-[36px] flex items-center justify-center lg:justify-start gap-2">
               <span className="text-slate-500">Specializing in</span>
-              <span className="text-indigo-600 font-bold underline decoration-indigo-300 underline-offset-4">
+              <span
+                className="font-bold underline underline-offset-4 transition-colors"
+                style={{
+                  color: theme.primaryHex,
+                  textDecorationColor: `${theme.color}60`,
+                }}
+              >
                 <Typewriter
                   words={[
                     "Production AI Systems",
@@ -126,7 +134,8 @@ const Hero = () => {
                 href="https://drive.google.com/file/d/1osI2rC8PxNYxwXS9NLwhhb0ff1LQqRhY/view?usp=drivesdk"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-600 to-violet-600 text-white font-semibold text-sm shadow-md shadow-indigo-500/20 hover:shadow-indigo-500/35 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex items-center gap-1.5"
+                className={`px-6 py-3 rounded-xl bg-gradient-to-r ${theme.gradientClass} text-white font-semibold text-sm shadow-md transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-1.5`}
+                style={{ boxShadow: `0 4px 15px ${theme.color}35` }}
               >
                 View Resume <ArrowUpRight className="w-4 h-4" />
               </a>
@@ -141,7 +150,12 @@ const Hero = () => {
               <button
                 onClick={handleCopyEmail}
                 title="Copy email to clipboard"
-                className="px-4 py-3 rounded-xl bg-indigo-50/80 border border-indigo-200/70 text-indigo-700 hover:bg-indigo-100/80 font-medium text-xs flex items-center gap-1.5 transition-all duration-200 active:scale-95"
+                className="px-4 py-3 rounded-xl border font-medium text-xs flex items-center gap-1.5 transition-all duration-200 active:scale-95"
+                style={{
+                  backgroundColor: `${theme.color}10`,
+                  borderColor: `${theme.color}35`,
+                  color: theme.primaryHex,
+                }}
               >
                 {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
                 {copied ? "Copied!" : "pratyaksh1594@gmail.com"}
@@ -153,10 +167,13 @@ const Hero = () => {
               {stats.map((st, idx) => (
                 <div
                   key={idx}
-                  className="bg-white border border-slate-200/90 rounded-xl p-3.5 shadow-xs hover:shadow-md hover:border-indigo-200 transition-all duration-300 flex flex-col items-center sm:items-start text-center sm:text-left group"
+                  className="bg-white border border-slate-200/90 rounded-xl p-3.5 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col items-center sm:items-start text-center sm:text-left group"
                 >
                   <div className="text-sm mb-1">{st.icon}</div>
-                  <p className="text-indigo-600 font-extrabold text-xl sm:text-2xl tracking-tight group-hover:scale-105 transition-transform">
+                  <p
+                    className="font-extrabold text-xl sm:text-2xl tracking-tight group-hover:scale-105 transition-transform"
+                    style={{ color: theme.primaryHex }}
+                  >
                     {st.value}
                   </p>
                   <p className="text-slate-500 text-xs font-medium mt-0.5 leading-snug">
@@ -194,8 +211,13 @@ const Hero = () => {
             className="w-full lg:w-[42%] flex justify-center items-center relative"
           >
             <div className="relative">
-              {/* Subtle background ambient ring */}
-              <div className="absolute -inset-4 bg-gradient-to-tr from-indigo-200 via-violet-200 to-sky-200 rounded-[2.5rem] blur-2xl opacity-60 animate-pulse-subtle" />
+              {/* Subtle background dynamic ambient ring */}
+              <div
+                className="absolute -inset-4 rounded-[2.5rem] blur-2xl opacity-50 animate-pulse-subtle transition-all duration-500"
+                style={{
+                  background: `linear-gradient(135deg, ${theme.color}45, ${theme.secondaryHex || theme.color}25, transparent)`,
+                }}
+              />
 
               {/* Main Avatar Container */}
               <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[360px] lg:h-[360px] rounded-[2rem] p-2 bg-white border border-slate-200 shadow-xl overflow-hidden group">
@@ -212,7 +234,13 @@ const Hero = () => {
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute -top-4 -left-4 sm:-left-6 bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-lg px-3.5 py-2 rounded-2xl flex items-center gap-2.5"
               >
-                <div className="w-7 h-7 rounded-lg bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
+                <div
+                  className="w-7 h-7 rounded-lg flex items-center justify-center"
+                  style={{
+                    backgroundColor: `${theme.color}15`,
+                    color: theme.primaryHex,
+                  }}
+                >
                   <Briefcase className="w-4 h-4" />
                 </div>
                 <div>
@@ -242,7 +270,7 @@ const Hero = () => {
                 transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                 className="hidden sm:flex absolute bottom-8 -left-8 bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-lg px-3 py-1.5 rounded-full items-center gap-1.5 text-xs font-semibold text-slate-700"
               >
-                <Sparkles className="w-3.5 h-3.5 text-indigo-500 fill-indigo-100" />
+                <Sparkles className="w-3.5 h-3.5" style={{ color: theme.primaryHex }} />
                 RAG & Next.js
               </motion.div>
             </div>

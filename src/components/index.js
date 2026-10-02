@@ -12,6 +12,7 @@ import Achievements from './Achievements';
 import RippleEffect from './RippleEffect';
 import ScrollProgress from './ScrollProgress';
 import ScrollToTop from './ScrollToTop';
+import AccentColorSwitcher from './AccentColorSwitcher';
 
 export {
   Hero,
@@ -31,4 +32,5 @@ export {
   RippleEffect,
   ScrollProgress,
   ScrollToTop,
+  AccentColorSwitcher,
 }

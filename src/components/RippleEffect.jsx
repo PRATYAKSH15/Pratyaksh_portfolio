@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useTheme } from "../context/ThemeContext";
 
 const RippleEffect = () => {
+  const { theme } = useTheme();
   const [position, setPosition] = useState({ x: -100, y: -100 });
   const [ringPosition, setRingPosition] = useState({ x: -100, y: -100 });
   const [isHovered, setIsHovered] = useState(false);
@@ -82,23 +84,30 @@ const RippleEffect = () => {
       <div
         className={`fixed top-0 left-0 rounded-full transition-transform duration-150 ease-out pointer-events-none ${
           isHovered
-            ? "w-11 h-11 bg-indigo-500/10 border border-indigo-500/70 shadow-[0_0_15px_rgba(99,102,241,0.25)] scale-125"
+            ? "w-11 h-11 scale-125"
             : isClicked
-            ? "w-8 h-8 bg-indigo-500/15 border border-indigo-500/60 scale-90"
-            : "w-8 h-8 border border-indigo-400/40 bg-indigo-500/5 shadow-xs"
+            ? "w-8 h-8 scale-90"
+            : "w-8 h-8"
         }`}
         style={{
           transform: `translate3d(${ringPosition.x}px, ${ringPosition.y}px, 0) translate(-50%, -50%)`,
+          backgroundColor: isHovered ? `${theme.color}20` : isClicked ? `${theme.color}25` : `${theme.color}10`,
+          borderColor: isHovered ? theme.color : `${theme.color}60`,
+          borderWidth: "1px",
+          borderStyle: "solid",
+          boxShadow: isHovered ? `0 0 16px ${theme.color}40` : "none",
         }}
       />
 
       {/* Tiny Precision Inner Dot */}
       <div
-        className={`fixed top-0 left-0 w-1.5 h-1.5 rounded-full bg-indigo-600 transition-transform duration-75 ease-out pointer-events-none ${
-          isHovered ? "scale-150 bg-violet-600" : isClicked ? "scale-75" : "scale-100"
+        className={`fixed top-0 left-0 w-1.5 h-1.5 rounded-full transition-transform duration-75 ease-out pointer-events-none ${
+          isHovered ? "scale-150" : isClicked ? "scale-75" : "scale-100"
         }`}
         style={{
           transform: `translate3d(${position.x}px, ${position.y}px, 0) translate(-50%, -50%)`,
+          backgroundColor: theme.primaryHex,
+          boxShadow: `0 0 8px ${theme.color}`,
         }}
       />
     </div>

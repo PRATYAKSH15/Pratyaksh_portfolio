@@ -10,7 +10,9 @@ const featuredProjects = ["CitizenCare", "DevCollab", "Auditor Agent", "Elevatr"
 
 const categories = ["All", "Featured", "AI & LLMs", "Full Stack"];
 
-const ProjectCard = ({ index, name, description, tags, image, source_code_link, demo_link }) => {
+import { useTheme } from "../context/ThemeContext";
+
+const ProjectCard = ({ index, name, description, tags, image, source_code_link, demo_link, theme }) => {
   const isFeatured = featuredProjects.includes(name);
 
   return (
@@ -25,9 +27,10 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link, 
       <div
         className={`h-full flex flex-col rounded-2xl bg-white border transition-all duration-300 overflow-hidden group ${
           isFeatured
-            ? "border-indigo-200/90 shadow-card hover:shadow-card-hover hover:border-indigo-400"
+            ? "border-slate-200/90 shadow-card hover:shadow-card-hover"
             : "border-slate-200/90 shadow-xs hover:shadow-card-hover hover:border-slate-300"
         }`}
+        style={isFeatured ? { borderColor: `${theme.color}40` } : {}}
       >
         {/* Project Thumbnail with Action Overlay */}
         <div className="relative aspect-video w-full overflow-hidden bg-slate-100">
@@ -52,7 +55,8 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link, 
                 target="_blank"
                 rel="noopener noreferrer"
                 title="View Source Code"
-                className="p-2.5 rounded-full bg-white text-slate-800 hover:text-indigo-600 hover:scale-110 shadow-md transition-all duration-200"
+                className="p-2.5 rounded-full bg-white text-slate-800 hover:scale-110 shadow-md transition-all duration-200"
+                style={{ color: theme.primaryHex }}
               >
                 <Github className="w-4 h-4" />
               </a>
@@ -63,7 +67,8 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link, 
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Open Live Application"
-                className="p-2.5 rounded-full bg-indigo-600 text-white hover:bg-indigo-700 hover:scale-110 shadow-md transition-all duration-200"
+                className="p-2.5 rounded-full text-white hover:scale-110 shadow-md transition-all duration-200"
+                style={{ backgroundColor: theme.primaryHex }}
               >
                 <ExternalLink className="w-4 h-4" />
               </a>
@@ -75,7 +80,7 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link, 
         <div className="p-5 sm:p-6 flex flex-col flex-1">
           {/* Header & Quick Links on Mobile */}
           <div className="flex items-start justify-between gap-2">
-            <h3 className="text-slate-900 text-lg font-bold tracking-tight group-hover:text-indigo-600 transition-colors">
+            <h3 className="text-slate-900 text-lg font-bold tracking-tight transition-colors">
               {name}
             </h3>
 
@@ -96,7 +101,8 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link, 
                   href={demo_link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-1.5 rounded-lg bg-indigo-50 text-indigo-600"
+                  className="p-1.5 rounded-lg bg-slate-100"
+                  style={{ color: theme.primaryHex }}
                   aria-label="Live demo"
                 >
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -147,7 +153,8 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link, 
                 href={demo_link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-indigo-600 hover:text-indigo-800 flex items-center gap-1 font-bold transition-colors"
+                className="flex items-center gap-1 font-bold transition-colors"
+                style={{ color: theme.primaryHex }}
               >
                 Live Preview <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
@@ -162,6 +169,7 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link, 
 };
 
 const Works = () => {
+  const { theme } = useTheme();
   const [activeTab, setActiveTab] = useState("All");
 
   const filteredProjects = projects.filter((project) => {
@@ -191,7 +199,16 @@ const Works = () => {
     <div className="w-full max-w-7xl mx-auto py-8 px-2 sm:px-4">
       {/* Section Header */}
       <div className="text-center max-w-2xl mx-auto mb-10">
-        <span className={styles.sectionSubText}>Portfolio Showcase</span>
+        <span
+          className="text-xs sm:text-sm font-semibold uppercase tracking-widest px-3.5 py-1 rounded-full inline-block mb-3 border transition-colors"
+          style={{
+            color: theme.primaryHex,
+            backgroundColor: `${theme.color}12`,
+            borderColor: `${theme.color}30`,
+          }}
+        >
+          Portfolio Showcase
+        </span>
         <h2 className={styles.sectionHeadText}>
           Featured <span className="text-gradient-brand">Projects</span>
         </h2>
@@ -211,9 +228,17 @@ const Works = () => {
               onClick={() => setActiveTab(tab)}
               className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 ${
                 isActive
-                  ? "bg-indigo-600 text-white shadow-sm shadow-indigo-500/25 scale-105"
+                  ? "text-white shadow-sm scale-105"
                   : "bg-white border border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50"
               }`}
+              style={
+                isActive
+                  ? {
+                      backgroundColor: theme.primaryHex,
+                      boxShadow: `0 4px 14px ${theme.color}35`,
+                    }
+                  : {}
+              }
             >
               {tab}
             </button>
@@ -228,6 +253,7 @@ const Works = () => {
             <ProjectCard
               key={project.name}
               index={index}
+              theme={theme}
               {...project}
             />
           ))}

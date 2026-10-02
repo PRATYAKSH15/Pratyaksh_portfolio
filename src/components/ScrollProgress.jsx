@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useTheme } from "../context/ThemeContext";
 
 const ScrollProgress = () => {
+  const { theme } = useTheme();
   const [scrollWidth, setScrollWidth] = useState(0);
 
   useEffect(() => {
@@ -18,7 +20,7 @@ const ScrollProgress = () => {
   return (
     <div className="fixed top-0 left-0 w-full h-[3px] bg-transparent z-50 pointer-events-none">
       <div
-        className="h-full bg-gradient-to-r from-purple-500 via-indigo-500 to-pink-500 transition-all duration-150 ease-out"
+        className={`h-full bg-gradient-to-r ${theme.gradientClass} transition-all duration-150 ease-out`}
         style={{ width: `${scrollWidth}%` }}
       />
     </div>

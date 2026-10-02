@@ -80,7 +80,10 @@ const channels = [
   },
 ];
 
+import { useTheme } from "../context/ThemeContext";
+
 const Contact = () => {
+  const { theme } = useTheme();
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = () => {
@@ -108,7 +111,16 @@ const Contact = () => {
 
       {/* Section Header */}
       <div className="text-center max-w-2xl mx-auto mb-12">
-        <span className={styles.sectionSubText}>Get In Touch</span>
+        <span
+          className="text-xs sm:text-sm font-semibold uppercase tracking-widest px-3.5 py-1 rounded-full inline-block mb-3 border transition-colors"
+          style={{
+            color: theme.primaryHex,
+            backgroundColor: `${theme.color}12`,
+            borderColor: `${theme.color}30`,
+          }}
+        >
+          Get In Touch
+        </span>
         <h2 className={styles.sectionHeadText}>
           Let’s Connect & <span className="text-gradient-brand">Collaborate</span>
         </h2>
@@ -119,10 +131,16 @@ const Contact = () => {
       </div>
 
       {/* Primary Featured Direct Email Banner */}
-      <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-card hover:shadow-card-hover hover:border-indigo-200 transition-all duration-300 mb-8 max-w-4xl mx-auto">
+      <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-card hover:shadow-card-hover transition-all duration-300 mb-8 max-w-4xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4 text-center md:text-left flex-col md:flex-row">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-indigo-600 to-violet-600 text-white flex items-center justify-center shadow-lg shadow-indigo-500/20 shrink-0">
+            <div
+              className="w-14 h-14 rounded-2xl text-white flex items-center justify-center shadow-lg shrink-0 transition-all duration-300"
+              style={{
+                background: `linear-gradient(135deg, ${theme.primaryHex}, ${theme.secondaryHex})`,
+                boxShadow: `0 6px 20px ${theme.color}35`,
+              }}
+            >
               <Mail className="w-7 h-7" />
             </div>
             <div>
@@ -150,7 +168,8 @@ const Contact = () => {
             <a
               href="mailto:pratyaksh1594@gmail.com"
               onClick={handleHireMeClick}
-              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 text-white font-semibold text-xs flex items-center gap-1.5 shadow-md shadow-indigo-500/20 transition-all hover:scale-[1.02] active:scale-95"
+              className={`px-5 py-2.5 rounded-xl bg-gradient-to-r ${theme.gradientClass} ${theme.gradientHover} text-white font-semibold text-xs flex items-center gap-1.5 shadow-md transition-all hover:scale-[1.02] active:scale-95`}
+              style={{ boxShadow: `0 4px 15px ${theme.color}35` }}
             >
               <Send className="w-4 h-4" /> Send Email
             </a>
@@ -160,11 +179,11 @@ const Contact = () => {
         {/* Quick Highlights Bar */}
         <div className="mt-6 pt-6 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-slate-600 font-medium">
           <div className="flex items-center justify-center sm:justify-start gap-2">
-            <Clock className="w-4 h-4 text-indigo-500 shrink-0" />
+            <Clock className="w-4 h-4 shrink-0" style={{ color: theme.primaryHex }} />
             <span>Response time: <strong className="text-slate-800">&lt; 24 hours</strong></span>
           </div>
           <div className="flex items-center justify-center sm:justify-start gap-2">
-            <MapPin className="w-4 h-4 text-indigo-500 shrink-0" />
+            <MapPin className="w-4 h-4 shrink-0" style={{ color: theme.primaryHex }} />
             <span>Location: <strong className="text-slate-800">New Delhi, India</strong></span>
           </div>
           <div className="flex items-center justify-center sm:justify-start gap-2">

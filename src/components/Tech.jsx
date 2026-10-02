@@ -122,12 +122,25 @@ const techCategories = [
   },
 ];
 
+import { useTheme } from "../context/ThemeContext";
+
 const Tech = () => {
+  const { theme } = useTheme();
+
   return (
     <div className="w-full max-w-7xl mx-auto py-8 px-2 sm:px-4">
       {/* Section Header */}
       <div className="text-center max-w-2xl mx-auto mb-12">
-        <span className={styles.sectionSubText}>Technical Proficiency</span>
+        <span
+          className="text-xs sm:text-sm font-semibold uppercase tracking-widest px-3.5 py-1 rounded-full inline-block mb-3 border transition-colors"
+          style={{
+            color: theme.primaryHex,
+            backgroundColor: `${theme.color}12`,
+            borderColor: `${theme.color}30`,
+          }}
+        >
+          Technical Proficiency
+        </span>
         <h2 className={styles.sectionHeadText}>
           Skills & <span className="text-gradient-brand">Technologies</span>
         </h2>
